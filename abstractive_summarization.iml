@@ -9,4 +9,4 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="lucene-core-3.6.2" level="project" />
-    <orderEntry t
+    <orderEntry type="library" name="gurobi" level="project" />
