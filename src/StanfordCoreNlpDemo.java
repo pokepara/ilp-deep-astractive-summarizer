@@ -14,4 +14,6 @@ import edu.stanford.nlp.trees.*;
 import edu.stanford.nlp.util.*;
 
 /** This class demonstrates building and using a Stanford CoreNLP pipeline. */
-public cl
+public class StanfordCoreNlpDemo {
+
+    /** Usage: jav
