@@ -13,4 +13,4 @@ import edu.stanford.nlp.sentiment.SentimentCoreAnnotations;
 import edu.stanford.nlp.trees.*;
 import edu.stanford.nlp.util.*;
 
-/** This class d
+/** This class demonstrates building and using a Stanf
