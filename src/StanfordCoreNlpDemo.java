@@ -16,4 +16,5 @@ import edu.stanford.nlp.util.*;
 /** This class demonstrates building and using a Stanford CoreNLP pipeline. */
 public class StanfordCoreNlpDemo {
 
-    /** Usage: java -cp "*" StanfordCoreNlpDemo [inputFile [o
+    /** Usage: java -cp "*" StanfordCoreNlpDemo [inputFile [outputTextFile [outputXmlFile]]] */
+    public 
