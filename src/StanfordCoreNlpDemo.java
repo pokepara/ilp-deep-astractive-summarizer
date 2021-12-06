@@ -17,4 +17,4 @@ import edu.stanford.nlp.util.*;
 public class StanfordCoreNlpDemo {
 
     /** Usage: java -cp "*" StanfordCoreNlpDemo [inputFile [outputTextFile [outputXmlFile]]] */
-    public 
+    public static void main(String[] args) throws IOEx
