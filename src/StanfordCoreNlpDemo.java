@@ -20,4 +20,5 @@ public class StanfordCoreNlpDemo {
     public static void main(String[] args) throws IOException {
         // set up optional output files
         PrintWriter out;
-        if (args.le
+        if (args.length > 1) {
+            out = new PrintWrite
