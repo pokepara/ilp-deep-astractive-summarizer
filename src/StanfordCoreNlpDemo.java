@@ -21,4 +21,6 @@ public class StanfordCoreNlpDemo {
         // set up optional output files
         PrintWriter out;
         if (args.length > 1) {
-            out = new PrintWrite
+            out = new PrintWriter(args[1]);
+        } else {
+            out = new Prin
