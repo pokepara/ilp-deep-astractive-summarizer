@@ -23,4 +23,6 @@ public class StanfordCoreNlpDemo {
         if (args.length > 1) {
             out = new PrintWriter(args[1]);
         } else {
-            out = new Prin
+            out = new PrintWriter(System.out);
+        }
+        PrintWriter xml
