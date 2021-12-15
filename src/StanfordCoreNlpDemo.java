@@ -27,4 +27,7 @@ public class StanfordCoreNlpDemo {
         }
         PrintWriter xmlOut = null;
         if (args.length > 2) {
-            
+            xmlOut = new PrintWriter(args[2]);
+        }
+
+   
