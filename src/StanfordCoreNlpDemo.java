@@ -30,4 +30,4 @@ public class StanfordCoreNlpDemo {
             xmlOut = new PrintWriter(args[2]);
         }
 
-   
+        // Create a CoreNLP pipeline. To build
