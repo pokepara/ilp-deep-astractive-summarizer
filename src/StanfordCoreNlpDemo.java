@@ -32,4 +32,5 @@ public class StanfordCoreNlpDemo {
 
         // Create a CoreNLP pipeline. To build the default pipeline, you can just use:
         //   StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
-        // Here's a more complex se
+        // Here's a more complex setup example:
+        //   Properties props = ne
