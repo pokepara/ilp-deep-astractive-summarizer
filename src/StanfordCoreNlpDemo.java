@@ -40,4 +40,5 @@ public class StanfordCoreNlpDemo {
         //   StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
 
         // Add in sentiment
-        Pro
+        Properties props = new Properties();
+     
