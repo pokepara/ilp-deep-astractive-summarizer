@@ -37,4 +37,6 @@ public class StanfordCoreNlpDemo {
         //   props.put("annotators", "tokenize, ssplit, pos, lemma, ner, depparse");
         //   props.put("ner.model", "edu/stanford/nlp/models/ner/english.all.3class.distsim.crf.ser.gz");
         //   props.put("ner.applyNumericClassifiers", "false");
-        //   StanfordCoreNLP pipeli
+        //   StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
+
+ 
