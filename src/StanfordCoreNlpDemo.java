@@ -39,4 +39,5 @@ public class StanfordCoreNlpDemo {
         //   props.put("ner.applyNumericClassifiers", "false");
         //   StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
 
- 
+        // Add in sentiment
+        Pro
