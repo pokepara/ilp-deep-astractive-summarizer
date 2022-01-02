@@ -43,4 +43,6 @@ public class StanfordCoreNlpDemo {
         Properties props = new Properties();
         props.put("annotators", "tokenize, ssplit, pos, lemma, ner, parse, dcoref");
 
-        StanfordCoreN
+        StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
+
+       
