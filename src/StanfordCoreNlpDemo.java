@@ -41,4 +41,4 @@ public class StanfordCoreNlpDemo {
 
         // Add in sentiment
         Properties props = new Properties();
-     
+        props.put("annotators", "tokenize, ssplit, pos,
