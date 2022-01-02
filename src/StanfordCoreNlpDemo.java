@@ -41,4 +41,6 @@ public class StanfordCoreNlpDemo {
 
         // Add in sentiment
         Properties props = new Properties();
-        props.put("annotators", "tokenize, ssplit, pos,
+        props.put("annotators", "tokenize, ssplit, pos, lemma, ner, parse, dcoref");
+
+        StanfordCoreN
