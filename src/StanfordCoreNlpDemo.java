@@ -45,4 +45,4 @@ public class StanfordCoreNlpDemo {
 
         StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
 
-       
+        // Initialize an Annotation with some t
