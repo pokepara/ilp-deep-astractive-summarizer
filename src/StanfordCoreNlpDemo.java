@@ -48,4 +48,6 @@ public class StanfordCoreNlpDemo {
         // Initialize an Annotation with some text to be annotated. The text is the argument to the constructor.
         Annotation annotation;
         if (args.length > 0) {
-            annotation = new Annotation(IOUtils.slurpFileNoExc
+            annotation = new Annotation(IOUtils.slurpFileNoExceptions(args[0]));
+        } else {
+            annotat
