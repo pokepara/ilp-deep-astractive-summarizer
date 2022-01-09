@@ -45,4 +45,5 @@ public class StanfordCoreNlpDemo {
 
         StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
 
-        // Initialize an Annotation with some text to be annotated. The text is the argument to
+        // Initialize an Annotation with some text to be annotated. The text is the argument to the constructor.
+        Annotatio
