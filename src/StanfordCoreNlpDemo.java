@@ -50,4 +50,4 @@ public class StanfordCoreNlpDemo {
         if (args.length > 0) {
             annotation = new Annotation(IOUtils.slurpFileNoExceptions(args[0]));
         } else {
-            annotat
+            annotation = new Annotation("Kosgi Santosh sent an email to Sta
