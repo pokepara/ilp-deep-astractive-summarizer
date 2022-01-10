@@ -50,4 +50,5 @@ public class StanfordCoreNlpDemo {
         if (args.length > 0) {
             annotation = new Annotation(IOUtils.slurpFileNoExceptions(args[0]));
         } else {
-            annotation = new Annotation("Kosgi Santosh sent an email to Sta
+            annotation = new Annotation("Kosgi Santosh sent an email to Stanford University. He didn't get a reply.");
+      
