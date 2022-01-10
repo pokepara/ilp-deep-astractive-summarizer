@@ -51,4 +51,6 @@ public class StanfordCoreNlpDemo {
             annotation = new Annotation(IOUtils.slurpFileNoExceptions(args[0]));
         } else {
             annotation = new Annotation("Kosgi Santosh sent an email to Stanford University. He didn't get a reply.");
-      
+        }
+
+        // run all the selected Annotators on this
