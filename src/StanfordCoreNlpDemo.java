@@ -56,4 +56,4 @@ public class StanfordCoreNlpDemo {
         // run all the selected Annotators on this text
         pipeline.annotate(annotation);
 
-  
+        // this prints out the results 
