@@ -53,4 +53,7 @@ public class StanfordCoreNlpDemo {
             annotation = new Annotation("Kosgi Santosh sent an email to Stanford University. He didn't get a reply.");
         }
 
-        // run all the selected Annotators on this
+        // run all the selected Annotators on this text
+        pipeline.annotate(annotation);
+
+  
