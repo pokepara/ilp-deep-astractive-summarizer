@@ -56,4 +56,5 @@ public class StanfordCoreNlpDemo {
         // run all the selected Annotators on this text
         pipeline.annotate(annotation);
 
-        // this prints out the results of sentence analysis to file(s) in good format
+        // this prints out the results of sentence analysis to file(s) in good formats
+        pipeline.prettyPrint(ann
