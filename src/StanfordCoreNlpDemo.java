@@ -57,4 +57,5 @@ public class StanfordCoreNlpDemo {
         pipeline.annotate(annotation);
 
         // this prints out the results of sentence analysis to file(s) in good formats
-        pipeline.prettyPrint(ann
+        pipeline.prettyPrint(annotation, out);
+        if (xmlOut != null) {
