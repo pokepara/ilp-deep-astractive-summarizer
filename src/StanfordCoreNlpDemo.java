@@ -59,4 +59,7 @@ public class StanfordCoreNlpDemo {
         // this prints out the results of sentence analysis to file(s) in good formats
         pipeline.prettyPrint(annotation, out);
         if (xmlOut != null) {
-            pipeline.xmlPrint(annotation, xmlO
+            pipeline.xmlPrint(annotation, xmlOut);
+        }
+
+        // Access the Annotat
