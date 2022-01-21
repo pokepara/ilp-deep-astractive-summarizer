@@ -62,4 +62,5 @@ public class StanfordCoreNlpDemo {
             pipeline.xmlPrint(annotation, xmlOut);
         }
 
-        // Access the Annotat
+        // Access the Annotation in code
+        // The toString() metho
