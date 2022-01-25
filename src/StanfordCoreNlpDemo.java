@@ -63,4 +63,4 @@ public class StanfordCoreNlpDemo {
         }
 
         // Access the Annotation in code
-        // The toString() metho
+        // The toString() method on an Annotation just prints the text of the
