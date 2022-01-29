@@ -67,4 +67,7 @@ public class StanfordCoreNlpDemo {
         // But you can see what is in it with other methods like toShorterString()
         out.println();
         out.println("The top level annotation");
-        out.println(annotation.toShorterStri
+        out.println(annotation.toShorterString());
+        out.println();
+
+        // An 
