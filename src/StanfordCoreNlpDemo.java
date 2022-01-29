@@ -65,4 +65,5 @@ public class StanfordCoreNlpDemo {
         // Access the Annotation in code
         // The toString() method on an Annotation just prints the text of the Annotation
         // But you can see what is in it with other methods like toShorterString()
-        out.printl
+        out.println();
+        out.println("The top level annotation")
