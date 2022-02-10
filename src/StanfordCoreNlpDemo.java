@@ -70,4 +70,4 @@ public class StanfordCoreNlpDemo {
         out.println(annotation.toShorterString());
         out.println();
 
-        // An 
+        // An Annotation is a Map with Class keys for the lin
