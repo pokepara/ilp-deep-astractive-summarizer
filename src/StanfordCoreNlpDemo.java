@@ -71,4 +71,5 @@ public class StanfordCoreNlpDemo {
         out.println();
 
         // An Annotation is a Map with Class keys for the linguistic analysis types.
-        // You can get an
+        // You can get and use the various analyses individually.
+        // For instan
