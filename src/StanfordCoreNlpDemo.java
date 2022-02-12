@@ -72,4 +72,4 @@ public class StanfordCoreNlpDemo {
 
         // An Annotation is a Map with Class keys for the linguistic analysis types.
         // You can get and use the various analyses individually.
-        // For instan
+        // For instance, this gets the parse tree of the first senten
