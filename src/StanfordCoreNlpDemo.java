@@ -75,4 +75,5 @@ public class StanfordCoreNlpDemo {
         // For instance, this gets the parse tree of the first sentence in the text.
         List<CoreMap> sentences = annotation.get(CoreAnnotations.SentencesAnnotation.class);
         if (sentences != null && ! sentences.isEmpty()) {
-            
+            CoreMap sentence = sentences.get(0);
+      
