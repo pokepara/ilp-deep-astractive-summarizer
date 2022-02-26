@@ -79,4 +79,5 @@ public class StanfordCoreNlpDemo {
             out.println("The keys of the first sentence's CoreMap are:");
             out.println(sentence.keySet());
             out.println();
-          
+            out.println("The first sentence is:");
+  
