@@ -80,4 +80,4 @@ public class StanfordCoreNlpDemo {
             out.println(sentence.keySet());
             out.println();
             out.println("The first sentence is:");
-  
+            out.println(sentence.toShorterString
