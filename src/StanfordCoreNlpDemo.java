@@ -76,4 +76,5 @@ public class StanfordCoreNlpDemo {
         List<CoreMap> sentences = annotation.get(CoreAnnotations.SentencesAnnotation.class);
         if (sentences != null && ! sentences.isEmpty()) {
             CoreMap sentence = sentences.get(0);
-            out.println("The keys of the first sentence'
+            out.println("The keys of the first sentence's CoreMap are:");
+            out.println(senten
