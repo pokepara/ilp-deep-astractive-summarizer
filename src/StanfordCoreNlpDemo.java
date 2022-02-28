@@ -82,4 +82,5 @@ public class StanfordCoreNlpDemo {
             out.println("The first sentence is:");
             out.println(sentence.toShorterString());
             out.println();
-            out.pri
+            out.println("The first sentence tokens are:");
+     
