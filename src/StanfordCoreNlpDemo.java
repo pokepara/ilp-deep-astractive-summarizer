@@ -84,4 +84,5 @@ public class StanfordCoreNlpDemo {
             out.println();
             out.println("The first sentence tokens are:");
             for (CoreMap token : sentence.get(CoreAnnotations.TokensAnnotation.class)) {
-            
+                out.println(token.toShorterString());
+  
