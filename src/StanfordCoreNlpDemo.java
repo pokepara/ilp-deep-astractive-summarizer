@@ -87,4 +87,5 @@ public class StanfordCoreNlpDemo {
                 out.println(token.toShorterString());
             }
             Tree tree = sentence.get(TreeCoreAnnotations.TreeAnnotation.class);
-  
+            out.println();
+            out.println("The first 
