@@ -86,4 +86,5 @@ public class StanfordCoreNlpDemo {
             for (CoreMap token : sentence.get(CoreAnnotations.TokensAnnotation.class)) {
                 out.println(token.toShorterString());
             }
-            Tree tree = sentenc
+            Tree tree = sentence.get(TreeCoreAnnotations.TreeAnnotation.class);
+  
