@@ -89,4 +89,6 @@ public class StanfordCoreNlpDemo {
             Tree tree = sentence.get(TreeCoreAnnotations.TreeAnnotation.class);
             out.println();
             out.println("The first sentence parse tree is:");
-            tr
+            tree.pennPrint(out);
+            out.println();
+  
