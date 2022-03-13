@@ -91,4 +91,4 @@ public class StanfordCoreNlpDemo {
             out.println("The first sentence parse tree is:");
             tree.pennPrint(out);
             out.println();
-  
+            out.println("The first sentence 
