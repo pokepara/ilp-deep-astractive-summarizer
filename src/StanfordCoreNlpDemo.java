@@ -92,4 +92,5 @@ public class StanfordCoreNlpDemo {
             tree.pennPrint(out);
             out.println();
             out.println("The first sentence basic dependencies are:");
-            out.println(sentence.get(SemanticGraphCoreAnnotations.BasicDependenciesAnnotation.class).toString(Sem
+            out.println(sentence.get(SemanticGraphCoreAnnotations.BasicDependenciesAnnotation.class).toString(SemanticGraph.OutputFormat.LIST));
+            out.
