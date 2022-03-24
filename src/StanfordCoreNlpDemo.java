@@ -93,4 +93,4 @@ public class StanfordCoreNlpDemo {
             out.println();
             out.println("The first sentence basic dependencies are:");
             out.println(sentence.get(SemanticGraphCoreAnnotations.BasicDependenciesAnnotation.class).toString(SemanticGraph.OutputFormat.LIST));
-            out.
+            out.println("The first sentence collapsed, CC-processed d
