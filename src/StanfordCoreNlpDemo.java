@@ -96,3 +96,5 @@ public class StanfordCoreNlpDemo {
             out.println("The first sentence collapsed, CC-processed dependencies are:");
             SemanticGraph graph = sentence.get(SemanticGraphCoreAnnotations.CollapsedCCProcessedDependenciesAnnotation.class);
             out.println(graph.toString(SemanticGraph.OutputFormat.LIST));
+
+            // Access coreference. In the coreference li
