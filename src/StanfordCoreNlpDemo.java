@@ -97,4 +97,5 @@ public class StanfordCoreNlpDemo {
             SemanticGraph graph = sentence.get(SemanticGraphCoreAnnotations.CollapsedCCProcessedDependenciesAnnotation.class);
             out.println(graph.toString(SemanticGraph.OutputFormat.LIST));
 
-            // Access coreference. In the coreference li
+            // Access coreference. In the coreference link graph,
+            // each chain stores a set 
