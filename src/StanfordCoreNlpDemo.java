@@ -99,4 +99,4 @@ public class StanfordCoreNlpDemo {
 
             // Access coreference. In the coreference link graph,
             // each chain stores a set of mentions that co-refer with each other,
- 
+            // along with a method for getting th
