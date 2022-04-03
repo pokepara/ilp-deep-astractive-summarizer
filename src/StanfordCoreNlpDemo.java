@@ -98,4 +98,5 @@ public class StanfordCoreNlpDemo {
             out.println(graph.toString(SemanticGraph.OutputFormat.LIST));
 
             // Access coreference. In the coreference link graph,
-            // each chain stores a set 
+            // each chain stores a set of mentions that co-refer with each other,
+ 
