@@ -102,4 +102,5 @@ public class StanfordCoreNlpDemo {
             // along with a method for getting the most representative mention.
             // Both sentence and token offsets start at 1!
             out.println("Coreference information");
-            Map<Integer, edu.stanford.nlp.hcoref.data.CorefChain> co
+            Map<Integer, edu.stanford.nlp.hcoref.data.CorefChain> corefChains =
+                    annotation.get(edu.st
