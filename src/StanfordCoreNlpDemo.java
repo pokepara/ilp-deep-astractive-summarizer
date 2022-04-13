@@ -101,4 +101,5 @@ public class StanfordCoreNlpDemo {
             // each chain stores a set of mentions that co-refer with each other,
             // along with a method for getting the most representative mention.
             // Both sentence and token offsets start at 1!
-           
+            out.println("Coreference information");
+            Map<Inte
