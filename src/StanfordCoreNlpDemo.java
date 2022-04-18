@@ -103,4 +103,4 @@ public class StanfordCoreNlpDemo {
             // Both sentence and token offsets start at 1!
             out.println("Coreference information");
             Map<Integer, edu.stanford.nlp.hcoref.data.CorefChain> corefChains =
-                    annotation.get(edu.st
+                    annotation.get(edu.stanford.nlp.hcoref.CorefCoreAnnotations.CorefC
