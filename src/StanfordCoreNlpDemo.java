@@ -106,4 +106,4 @@ public class StanfordCoreNlpDemo {
                     annotation.get(edu.stanford.nlp.hcoref.CorefCoreAnnotations.CorefChainAnnotation.class);
             if (corefChains == null) { return; }
             for (Map.Entry<Integer,edu.stanford.nlp.hcoref.data.CorefChain> entry: corefChains.entrySet()) {
-   
+                out.println("Chain " + entry.
