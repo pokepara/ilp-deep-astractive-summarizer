@@ -104,4 +104,5 @@ public class StanfordCoreNlpDemo {
             out.println("Coreference information");
             Map<Integer, edu.stanford.nlp.hcoref.data.CorefChain> corefChains =
                     annotation.get(edu.stanford.nlp.hcoref.CorefCoreAnnotations.CorefChainAnnotation.class);
-            if (cor
+            if (corefChains == null) { return; }
+      
