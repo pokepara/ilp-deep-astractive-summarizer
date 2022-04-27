@@ -109,4 +109,4 @@ public class StanfordCoreNlpDemo {
                 out.println("Chain " + entry.getKey() + " ");
                 for (edu.stanford.nlp.hcoref.data.CorefChain.CorefMention m : entry.getValue().getMentionsInTextualOrder()) {
                     // We need to subtract one since the indices count from 1 but the Lists start from 0
-     
+                    List<CoreLabel> tokens = sentences
