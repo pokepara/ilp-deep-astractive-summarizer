@@ -111,4 +111,4 @@ public class StanfordCoreNlpDemo {
                     // We need to subtract one since the indices count from 1 but the Lists start from 0
                     List<CoreLabel> tokens = sentences.get(m.sentNum - 1).get(CoreAnnotations.TokensAnnotation.class);
                     // We subtract two for end: one for 0-based indexing, and one because we want last token of mention not one following.
-                    out.println("  " + m + ", i.e., 0-based chara
+                    out.println("  " + m + ", i.e., 0-based character offsets [" + tokens.get(m.startIndex - 1).b
