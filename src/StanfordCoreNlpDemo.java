@@ -112,4 +112,7 @@ public class StanfordCoreNlpDemo {
                     List<CoreLabel> tokens = sentences.get(m.sentNum - 1).get(CoreAnnotations.TokensAnnotation.class);
                     // We subtract two for end: one for 0-based indexing, and one because we want last token of mention not one following.
                     out.println("  " + m + ", i.e., 0-based character offsets [" + tokens.get(m.startIndex - 1).beginPosition() +
-                            ", " + tokens.get(m.endIndex - 2).endPosition
+                            ", " + tokens.get(m.endIndex - 2).endPosition() + ")");
+                }
+            }
+       
