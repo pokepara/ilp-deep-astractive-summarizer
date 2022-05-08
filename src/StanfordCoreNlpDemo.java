@@ -117,4 +117,4 @@ public class StanfordCoreNlpDemo {
             }
             out.println();
 
-            out.println("The first sentence overall sentiment 
+            out.println("The first sentence overall sentiment rating is " + sentence.get(SentimentCoreAnnotations.Sent
