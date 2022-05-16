@@ -120,4 +120,7 @@ public class StanfordCoreNlpDemo {
             out.println("The first sentence overall sentiment rating is " + sentence.get(SentimentCoreAnnotations.SentimentClass.class));
         }
         IOUtils.closeIgnoringExceptions(out);
-        IOUtils.cl
+        IOUtils.closeIgnoringExceptions(xmlOut);
+    }
+
+}
