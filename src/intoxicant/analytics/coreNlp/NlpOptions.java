@@ -40,3 +40,56 @@ public class NlpOptions {
 
     /**
      * Create NlpOptions configuration class to create a NLP analyzer that does sentence parsing
+     * @param lemmatisation flag to turn lemmatisation on / off during tokenization
+     */
+    public static NlpOptions sentenceParser(boolean lemmatisation) {
+        return new NlpOptions(lemmatisation, false, false, true, false, -1, false);
+    }
+
+    /**
+     * @param lemmatisation enable lemmatisation output for each word
+     * @param namedEntityRecognition enables named entity recognition
+     * @param namedEntityRecognitionRegex enables regex based named entity recognition
+     * @param sentenceParser enables sentence parser
+     * @param coreferenceAnalysis enable coreference analysis of input text
+     * @param corefMaxSentenceDist max sentence distance to evaluate coreference between tokens
+     * @param corefPostProcessing do post procesing of coreference data to trim out singletons
+     */
+    private NlpOptions(
+            boolean lemmatisation,
+            boolean namedEntityRecognition,
+            boolean namedEntityRecognitionRegex,
+            boolean sentenceParser,
+            boolean coreferenceAnalysis,
+            int corefMaxSentenceDist,
+            boolean corefPostProcessing) {
+
+        this.lemmatisation = lemmatisation;
+        this.namedEntityRecognition = namedEntityRecognition;
+        this.namedEntityRecognitionRegex = namedEntityRecognitionRegex;
+        this.sentenceParser = sentenceParser;
+        this.coreferenceAnalysis = coreferenceAnalysis;
+        this.corefMaxSentenceDist = corefMaxSentenceDist;
+        this.corefPostProcessing = corefPostProcessing;
+    }
+
+    /**
+     * enable lemmatisation output for each word
+     */
+    public final boolean lemmatisation;
+    /**
+     * enables named entity recognition
+     */
+    public final boolean namedEntityRecognition;
+    /**
+     * enables regular expression based named entity recognition
+     */
+    public final boolean namedEntityRecognitionRegex;
+
+    /**
+     * enable parse tree generation for sentences
+     */
+    public final boolean sentenceParser;
+    /**
+     * enable coreference analysis of input text
+     */
