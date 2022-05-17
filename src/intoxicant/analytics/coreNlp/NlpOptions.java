@@ -93,3 +93,60 @@ public class NlpOptions {
     /**
      * enable coreference analysis of input text
      */
+    public final boolean coreferenceAnalysis;
+    /**
+     * max sentence distance to evaluate coreference between tokens
+     */
+    public final int corefMaxSentenceDist;
+    /**
+     * do post procesing of coreference data to trim out singletons
+     */
+    public final boolean corefPostProcessing;
+
+    public Properties getNlpProperties() {
+        /**
+         * the full list of annotators: tokenize, cleanxml, ssplit, pos, lemma, ner, regexner, gender, truecase, parse, dcoref
+         */
+
+        //create the property object required by core nlp
+        Properties props = new Properties();
+
+        //base set of annotators.  The list of nlp annotators are order dependent
+        StringBuilder annotators = new StringBuilder("tokenize, ssplit, pos");
+
+        if (this.lemmatisation) {
+            annotators.append(", lemma");
+        }
+
+        //add named entity extraction
+        if (this.namedEntityRecognition) {
+            annotators.append(", ner");
+        }
+
+        //add regex based named entity extraction
+        if (this.namedEntityRecognitionRegex) {
+            annotators.append(", regexner");
+        }
+
+        //add sentence parse annotator if needed
+        if (this.sentenceParser) {
+            annotators.append(", parse");
+        }
+
+        //add coreference annotator if needed
+        if (this.coreferenceAnalysis) {
+            if (annotators.indexOf("parse") == -1) {
+                annotators.append(", parse");
+            }
+            annotators.append(", dcoref");
+            props.setProperty(edu.stanford.nlp.dcoref.Constants.MAXDIST_PROP, String.valueOf(this.corefMaxSentenceDist));	//-1 no max dist
+            props.setProperty(edu.stanford.nlp.dcoref.Constants.POSTPROCESSING_PROP, String.valueOf(this.corefPostProcessing));	//false is default
+        }
+
+        props.put("annotators", annotators.toString());
+
+        //options to not prefix backspaces with forward slash
+        props.put("tokenize.options", "invertible,ptb3Escaping=true,escapeForwardSlashAsterisk=false,normalizeParentheses=false,normalizeOtherBrackets=false");
+
+        return props;
+    }
