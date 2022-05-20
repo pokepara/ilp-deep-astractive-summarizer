@@ -150,3 +150,20 @@ public class NlpOptions {
 
         return props;
     }
+
+    /**
+     * Creates and returns a StanfordCoreNlp analyzer based on the configured options
+     */
+    public StanfordCoreNLP buildNlpAnalyzer() {
+        //create the nlp pipeline object -- it can take a while
+        return new StanfordCoreNLP(this.getNlpProperties());
+    }
+
+    /**
+     * Creates and returns a StanfordCoreNlp analyzer based on the configured options
+     */
+    public StanfordCoreNLP buildNlpAnalyzer(Properties props) {
+        //create the nlp pipeline object -- it can take a while
+        return new StanfordCoreNLP(props);
+    }
+}
