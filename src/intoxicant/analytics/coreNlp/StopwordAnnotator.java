@@ -75,3 +75,34 @@ public class StopwordAnnotator implements Annotator, CoreAnnotation<Pair<Boolean
             }
         }
     }
+
+    @Override
+    public Set<Requirement> requirementsSatisfied() {
+        return Collections.singleton(STOPWORD_REQUIREMENT);
+    }
+
+    @Override
+    public Set<Requirement> requires() {
+        if (checkLemma) {
+            return TOKENIZE_SSPLIT_POS_LEMMA;
+        }
+        else {
+            return TOKENIZE_AND_SSPLIT;
+        }
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public Class<Pair<Boolean, Boolean>> getType() {
+        return (Class<Pair<Boolean, Boolean>>) boolPair;
+    }
+
+    public static Set<String> getStopWordList(String stopwordList, boolean ignoreCase) {
+        String[] terms = stopwordList.split(",");
+        Set<String> stopwordSet = new HashSet<>();
+        for (String term : terms) {
+            stopwordSet.add(term);
+        }
+        return stopwordSet;
+    }
+}
