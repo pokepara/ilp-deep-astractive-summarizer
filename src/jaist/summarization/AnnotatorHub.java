@@ -16,4 +16,5 @@ import java.util.Properties;
 public class AnnotatorHub {
     private static AnnotatorHub instance = null;
 
-    
+    private StanfordCoreNLP pipeline = null;
+    priv
