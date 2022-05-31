@@ -14,3 +14,6 @@ import java.util.Properties;
  * Created by chientran on 9/29/15.
  */
 public class AnnotatorHub {
+    private static AnnotatorHub instance = null;
+
+    
