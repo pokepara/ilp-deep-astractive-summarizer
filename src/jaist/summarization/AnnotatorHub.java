@@ -17,4 +17,4 @@ public class AnnotatorHub {
     private static AnnotatorHub instance = null;
 
     private StanfordCoreNLP pipeline = null;
-    priv
+    private EntityMentionsAnnotator entityMentionsAn
