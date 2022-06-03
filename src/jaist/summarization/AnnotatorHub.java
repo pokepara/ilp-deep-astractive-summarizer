@@ -19,4 +19,5 @@ public class AnnotatorHub {
     private StanfordCoreNLP pipeline = null;
     private EntityMentionsAnnotator entityMentionsAnnotator = null;
 
-    protected Annotat
+    protected AnnotatorHub(){
+        Properties props = new Pro
