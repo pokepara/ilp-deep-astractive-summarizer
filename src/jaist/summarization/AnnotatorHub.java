@@ -22,4 +22,6 @@ public class AnnotatorHub {
     protected AnnotatorHub(){
         Properties props = new Properties();
         try {
-            String propF
+            String propFilename = "resources/config.properties";
+
+            
