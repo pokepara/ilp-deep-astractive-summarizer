@@ -20,4 +20,6 @@ public class AnnotatorHub {
     private EntityMentionsAnnotator entityMentionsAnnotator = null;
 
     protected AnnotatorHub(){
-        Properties props = new Pro
+        Properties props = new Properties();
+        try {
+            String propF
