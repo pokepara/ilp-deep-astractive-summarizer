@@ -24,4 +24,4 @@ public class AnnotatorHub {
         try {
             String propFilename = "resources/config.properties";
 
-            InputStream inputStream = getClass().getClassL
+            InputStream inputStream = getClass().getClassLoader().getResourceAsStream(propF
