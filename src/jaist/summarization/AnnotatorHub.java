@@ -28,4 +28,6 @@ public class AnnotatorHub {
 
             if (inputStream != null) {
                 props.load(inputStream);
-      
+            }
+        }catch(Exception e){
+            Sys
