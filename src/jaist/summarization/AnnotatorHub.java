@@ -27,4 +27,5 @@ public class AnnotatorHub {
             InputStream inputStream = getClass().getClassLoader().getResourceAsStream(propFilename);
 
             if (inputStream != null) {
- 
+                props.load(inputStream);
+      
