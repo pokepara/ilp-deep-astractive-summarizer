@@ -30,4 +30,4 @@ public class AnnotatorHub {
                 props.load(inputStream);
             }
         }catch(Exception e){
-            Sys
+            System.out.println("Error while loading properties file, usin
