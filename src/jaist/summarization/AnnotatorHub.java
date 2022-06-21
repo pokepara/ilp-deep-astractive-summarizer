@@ -31,4 +31,4 @@ public class AnnotatorHub {
             }
         }catch(Exception e){
             System.out.println("Error while loading properties file, using default properties");
-            props.setPr
+            props.setProperty("annotators", "tokenize, ssplit, po
