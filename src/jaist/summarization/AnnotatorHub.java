@@ -31,4 +31,7 @@ public class AnnotatorHub {
             }
         }catch(Exception e){
             System.out.println("Error while loading properties file, using default properties");
-            props.setProperty("annotators", "tokenize, ssplit, pos, lemma, ner, parse, dcoref, stopword
+            props.setProperty("annotators", "tokenize, ssplit, pos, lemma, ner, parse, dcoref, stopword");
+        }
+
+        this.pipeline = new StanfordCor
