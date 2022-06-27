@@ -36,4 +36,4 @@ public class AnnotatorHub {
 
         this.pipeline = new StanfordCoreNLP(props);
 
-        this.entityMentionsAnnotator = new
+        this.entityMentionsAnnotator = new EntityMentionsAnnotator("entitymentions", ne
