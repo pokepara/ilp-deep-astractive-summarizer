@@ -34,4 +34,6 @@ public class AnnotatorHub {
             props.setProperty("annotators", "tokenize, ssplit, pos, lemma, ner, parse, dcoref, stopword");
         }
 
-        this.pipeline = new StanfordCor
+        this.pipeline = new StanfordCoreNLP(props);
+
+        this.entityMentionsAnnotator = new
