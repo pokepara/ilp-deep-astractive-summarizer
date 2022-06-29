@@ -39,4 +39,5 @@ public class AnnotatorHub {
         this.entityMentionsAnnotator = new EntityMentionsAnnotator("entitymentions", new Properties());
     }
 
-    public static Annotato
+    public static AnnotatorHub getInstance(){
+        if (instance ==
