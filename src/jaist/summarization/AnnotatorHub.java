@@ -40,4 +40,5 @@ public class AnnotatorHub {
     }
 
     public static AnnotatorHub getInstance(){
-        if (instance ==
+        if (instance == null){
+            instance = new Annota
