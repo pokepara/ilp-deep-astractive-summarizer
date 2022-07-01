@@ -45,4 +45,7 @@ public class AnnotatorHub {
         }
 
         return instance;
-    
+    }
+
+    public StanfordCoreNLP getPipeline(){
+        ret
