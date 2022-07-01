@@ -48,4 +48,7 @@ public class AnnotatorHub {
     }
 
     public StanfordCoreNLP getPipeline(){
-        ret
+        return this.pipeline;
+    }
+
+    public Enti
