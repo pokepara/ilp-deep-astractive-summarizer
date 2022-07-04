@@ -51,4 +51,5 @@ public class AnnotatorHub {
         return this.pipeline;
     }
 
-    public Enti
+    public EntityMentionsAnnotator getEntityMentionsAnnotator(){
+    
