@@ -52,4 +52,4 @@ public class AnnotatorHub {
     }
 
     public EntityMentionsAnnotator getEntityMentionsAnnotator(){
-    
+        return this.entityMentionsAnnotator;
