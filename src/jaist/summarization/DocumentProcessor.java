@@ -97,3 +97,30 @@ public class DocumentProcessor {
     }
 
     public HashMap<String, HashSet<String>> getCorefs(){
+        return this.corefs;
+    }
+
+    public List<Phrase> getNounPhrases(){
+        return this.nounPhrases;
+    }
+
+    public List<Phrase> getVerbPhrases(){
+        return this.verbPhrases;
+    }
+
+    public List<Phrase> getAllPhrases(){
+        return this.allPhrases;
+    }
+
+    public HashSet<String> getNouns(){
+        return this.nouns;
+    }
+
+    public HashSet<String> getVerbs(){
+        return this.verbs;
+    }
+
+    public List<InputDocument> getDocs(){
+        return this.docs;
+    }
+}
