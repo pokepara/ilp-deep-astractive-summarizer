@@ -67,3 +67,44 @@ public class InputDocument {
         this.namedEntities = new HashSet<>();
 
         for (CoreMap mention : annotation.get(CoreAnnotations.MentionsAnnotation.class)) {
+            String ner = mention.get(CoreAnnotations.TextAnnotation.class);
+            namedEntities.add(ner);
+        }
+    }
+
+    private void prepareParagraphs(){
+        paragraphs = new ArrayList<>();
+        String[] paragraphTexts = annotation.toString().split(PARAGRAPH_SPLIT_REGEX);
+
+        for (String paragraphText: paragraphTexts){
+            HashMap<String, Integer> paragraphConceptsWithFrequency = extractConceptsFromString(paragraphText);
+            Paragraph paragraph = new Paragraph(paragraphConceptsWithFrequency);
+
+            paragraphs.add(paragraph);
+        }
+    }
+
+    private void buildWordToLemmaMap(){
+        wordToLemmaMap = new HashMap<>();
+
+        List<CoreLabel> tokens = annotation.get(CoreAnnotations.TokensAnnotation.class);
+        tokens = StopwordRemover.removeStopwords(tokens);
+
+        for (CoreLabel token: tokens){
+            wordToLemmaMap.put(token.originalText(), token.lemma());
+        }
+    }
+
+    private void extractCoreferences() {
+        corefs = new HashMap<>();
+
+        Map<Integer, edu.stanford.nlp.hcoref.data.CorefChain> corefChains = annotation.get(edu.stanford.nlp.hcoref.CorefCoreAnnotations.CorefChainAnnotation.class);
+
+        for (edu.stanford.nlp.hcoref.data.CorefChain c : corefChains.values()) {
+
+            edu.stanford.nlp.hcoref.data.CorefChain.CorefMention representative = c.getRepresentativeMention();
+            String key = representative.mentionSpan;
+
+            if (c.getMentionsInTextualOrder().size() == 1) {
+                continue;
+            }
