@@ -108,3 +108,49 @@ public class InputDocument {
             if (c.getMentionsInTextualOrder().size() == 1) {
                 continue;
             }
+
+            if (!corefs.containsKey(key)){
+                corefs.put(key, new HashSet<String>());
+                corefs.get(key).add(key);
+            }
+
+            for (edu.stanford.nlp.hcoref.data.CorefChain.CorefMention m : c.getMentionsInTextualOrder()) {
+                if (m == representative) {
+                    continue;
+                }
+
+                corefs.get(key).add(m.mentionSpan);
+            }
+        }
+    }
+
+    public HashMap<String, Integer> extractConceptsFromString(String content){
+        HashMap<String, Integer> concepts = new HashMap<>();
+
+        List<String> originalUnigrams = StringUtils.generateUnigrams(content);
+        LinkedHashSet<String> unigrams = new LinkedHashSet<>();
+        for (String unigram: originalUnigrams){
+            if (wordToLemmaMap.containsKey(unigram)){
+                String lemma = wordToLemmaMap.get(unigram);
+                unigrams.add(lemma);
+
+                increaseFrequency(concepts, lemma);
+
+            }
+        }
+
+        List<String> bigrams = StringUtils.generateBigrams(new ArrayList<>(unigrams));
+
+        for(String gram: bigrams){
+            increaseFrequency(concepts, gram);
+        }
+
+        for (String ner: namedEntities){
+            if (content.contains(ner)){
+
+                increaseFrequency(concepts, ner);
+            }
+        }
+
+        return concepts;
+    }
