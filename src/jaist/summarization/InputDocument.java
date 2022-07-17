@@ -154,3 +154,29 @@ public class InputDocument {
 
         return concepts;
     }
+
+    private void increaseFrequency(HashMap<String, Integer> conceptsToFrequency, String key){
+        Integer count = 0;
+
+        if (conceptsToFrequency.containsKey(key)){
+            count = conceptsToFrequency.get(key);
+        }
+
+        count += 1;
+
+        conceptsToFrequency.put(key, count);
+    }
+
+    public List<CoreMap> getSentences(){
+        return annotation.get(CoreAnnotations.SentencesAnnotation.class);
+    }
+
+    public List<Paragraph> getParagraphs(){
+        return this.paragraphs;
+    }
+
+    public HashMap<String, HashSet<String>> getCoreferences(){
+        return this.corefs;
+    }
+
+}
