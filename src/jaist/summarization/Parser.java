@@ -83,3 +83,57 @@ public class Parser {
         verbPhrases = new ArrayList<>();
         allPhrases = new ArrayList<>();
         corefs = new HashMap<>();
+
+        nouns = new HashSet<>();
+        verbs = new HashSet<>();
+
+        docs = new ArrayList<>();
+
+        processor = new DocumentProcessor(isDucData, indicatorMatrix);
+    }
+
+    public Parser(){
+        this(DEFAULT_MAXIMUM_SENTENCE, DEFAULT_ALTERNATIVE_VP_THRESHOLD, DEFAULT_MAX_WORD_LENGTH, false);
+    }
+
+    public Parser(int max_words){
+        this();
+        this.max_word_length = max_words;
+    }
+
+    public static void main(String[] args) throws Exception {
+        System.out.println("Start at: " + System.currentTimeMillis());
+        Options options = new Options();
+
+        options.addOption("help", false, "print command usage");
+        options.addOption("word_length", true, "maximum word length");
+        options.addOption("vp_threshold", true, "Alternative VP threshold");
+        options.addOption("max_sent", true, "maximum # of sentences");
+        options.addOption("in", true, "input folder containing all text files");
+        options.addOption("out", true, "Output file");
+        options.addOption("threads", true, "Number of threads");
+        options.addOption("duc", false, "Is DUC data");
+        options.addOption("export_only", false, "Should we find the solution or just export the phrases?");
+
+        CommandLineParser commandLineParser = new DefaultParser();
+        CommandLine cmd = commandLineParser.parse(options, args);
+
+        int word_length = DEFAULT_MAX_WORD_LENGTH;
+
+        if (cmd.hasOption("help")){
+            HelpFormatter formatter = new HelpFormatter();
+            formatter.printHelp( "usage", options );
+            return;
+        }
+
+        if (cmd.hasOption("word_length")){
+            word_length = Integer.parseInt(cmd.getOptionValue("word_length"));
+        }
+
+        int sentence_length = DEFAULT_MAXIMUM_SENTENCE;
+        if (cmd.hasOption("max_sent")){
+            sentence_length = Integer.parseInt(cmd.getOptionValue("max_sent"));
+        }
+
+        double vp_threshold = DEFAULT_ALTERNATIVE_VP_THRESHOLD;
+        if (cmd.hasOption("vp_threshold")){
