@@ -137,3 +137,62 @@ public class Parser {
 
         double vp_threshold = DEFAULT_ALTERNATIVE_VP_THRESHOLD;
         if (cmd.hasOption("vp_threshold")){
+            vp_threshold = Double.parseDouble(cmd.getOptionValue("vp_threshold"));
+        }
+
+        int threads = 0;
+        if (cmd.hasOption("threads")){
+            threads = Integer.parseInt(cmd.getOptionValue("threads"));
+        }
+
+        boolean isDucData = cmd.hasOption("duc");
+        boolean isExportOnly = cmd.hasOption("export_only");
+
+        String[] folders = cmd.getOptionValue("in").split(",");
+
+        for (String folderName: folders){
+            File folder = new File(folderName);
+
+            String outputFilename = folder.getName();
+
+            File[] fileNames = null;
+
+            if (folder.isDirectory()){
+                fileNames = folder.listFiles();
+            }else{
+                outputFilename = folder.getParent().substring(folder.getParent().lastIndexOf("/")+1);
+                System.out.println("Single document summarization. For multi-doc summarization, please specify a folder");
+                fileNames = new File[]{folder};
+            }
+
+            Parser parser = new Parser(sentence_length, vp_threshold, word_length, threads, isDucData);
+            System.out.println("Stanford CoreNLP loaded at " + System.currentTimeMillis());
+            for (File filepath: fileNames){
+                if (filepath.getName().startsWith(".")) continue;
+                System.out.println(filepath.getAbsolutePath());
+
+                String text = IOUtils.slurpFile(filepath);
+                parser.processDocument(text);
+            }
+
+            parser.updateModel();
+
+            parser.saveDataToFiles(outputFilename);
+
+            if (isExportOnly){
+                continue;
+            }
+
+            String summary = parser.generateSummary();
+
+            PrintWriter out = null;
+            try {
+                String summaryFolderName = "summary_results";
+                File summaryFolder = new File(summaryFolderName);
+                if (!summaryFolder.exists()){
+                    summaryFolder.mkdir();
+                }
+
+                out = new PrintWriter(summaryFolderName + "/" + outputFilename + "_system.txt");
+                out.print(summary);
+            } catch (FileNotFoundException ex) {
