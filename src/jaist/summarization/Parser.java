@@ -196,3 +196,61 @@ public class Parser {
                 out = new PrintWriter(summaryFolderName + "/" + outputFilename + "_system.txt");
                 out.print(summary);
             } catch (FileNotFoundException ex) {
+                System.out.println(ex.getMessage());
+            } finally {
+                out.close();
+            }
+        }
+
+    }
+
+    public void processDocument(String text){
+        processor.processDocument(text);
+    }
+
+    public void processDocuments(File[] files, boolean isDucData){
+        DocumentProcessor processor = new DocumentProcessor(isDucData, indicatorMatrix);
+        try {
+            processor.processDocuments(files);
+            nounPhrases = processor.getNounPhrases();
+            verbPhrases = processor.getVerbPhrases();
+            allPhrases = processor.getAllPhrases();
+            corefs = processor.getCorefs();
+            nouns = processor.getNouns();
+            verbs = processor.getVerbs();
+            docs = processor.getDocs();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void updateModel(){
+        nounPhrases = processor.getNounPhrases();
+        verbPhrases = processor.getVerbPhrases();
+        allPhrases = processor.getAllPhrases();
+        corefs = processor.getCorefs();
+        nouns = processor.getNouns();
+        verbs = processor.getVerbs();
+        docs = processor.getDocs();
+    }
+
+    public void saveDataToFiles(String documentSetName){
+        String statFolderName = "stats";
+        File statFolder = new File(statFolderName);
+        if (!statFolder.exists()){
+            statFolder.mkdir();
+        }
+
+        ModelExporter exporter = new ModelExporter(statFolderName, documentSetName);
+        exporter.savePhrasesToFile(allPhrases);
+        exporter.saveCoreferencesToFile(corefs);
+        exporter.saveIndicatorMatrixToFile(indicatorMatrix);
+        exporter.saveParagraphsToFile(docs);
+    }
+
+    public String generateSummary(){
+        System.out.println("Start scoring at " + System.currentTimeMillis());
+        scorePhrases();
+        System.out.println("Finish scoring at " + System.currentTimeMillis());
+
+        printLog();
