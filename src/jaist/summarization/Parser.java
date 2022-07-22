@@ -254,3 +254,48 @@ public class Parser {
         System.out.println("Finish scoring at " + System.currentTimeMillis());
 
         printLog();
+
+        return findOptimalSolution();
+    }
+
+    private void buildCompatibilityMatrix() {
+        int npLength = this.nounPhrases.size();
+        int vpLength = this.verbPhrases.size();
+
+        for (int p = 0; p < npLength; p++) {
+            for (int q = 0; q < vpLength; q++) {
+                Phrase noun = nounPhrases.get(p);
+                Phrase verb = verbPhrases.get(q);
+
+                int related = 0;
+
+                for (int i = 0; i < npLength; i++) {
+                    Phrase otherNoun = nounPhrases.get(i);
+
+                    if (alternativeNPs.exists(noun, otherNoun) && indicatorMatrix.exists(otherNoun, verb)) {
+                        related = 1;
+                        break;
+                    }
+                }
+
+                if (related == 0){
+                    for (int i=0; i<vpLength; i++){
+                        Phrase otherVerb = verbPhrases.get(i);
+
+                        if (alternativeVPs.exists(verb, otherVerb) && indicatorMatrix.exists(noun, otherVerb)){
+                            related = 1;
+                            break;
+                        }
+                    }
+                }
+
+                if (related == 0 && indicatorMatrix.exists(noun, verb)){
+                    related = 1;
+                }
+                compatibilityMatrix.setValue(this.nounPhrases.get(p), this.verbPhrases.get(q), related);
+            }
+        }
+    }
+
+    private String startOptimization() throws GRBException{
+        log("Start building optimization model");
