@@ -299,3 +299,38 @@ public class Parser {
 
     private String startOptimization() throws GRBException{
         log("Start building optimization model");
+        GRBEnv env = new GRBEnv("mip.log");
+        GRBModel model = new GRBModel(env);
+
+        //Note: more threads mean you need more memory
+        model.getEnv().set(GRB.IntParam.Threads, threads);
+
+        //model.getEnv().set(GRB.IntParam.OutputFlag, 0);
+
+        GRBLinExpr expr = new GRBLinExpr();
+
+        nounVariables = new HashMap<>();
+        verbVariables = new HashMap<>();
+        gammaVariables = new HashMap<>();
+        nounToNounVariables = new HashMap<>();
+        verbToVerbVariables = new HashMap<>();
+
+        markTime("building model for optimization");
+        for(Phrase noun:nounPhrases){
+            GRBVar var = model.addVar(0.0, 1.0, 1.0, GRB.BINARY, "n:" + noun.getId());
+            nounVariables.put(noun.getId(), var);
+
+            expr.addTerm(noun.getScore(), var);
+
+            for (Phrase verb: verbPhrases){
+                if (compatibilityMatrix.getValue(noun, verb).equals(1)){
+                    String key = "gamma:" + buildVariableKey(noun, verb);
+                    GRBVar gamma = model.addVar(0.0, 1.0, 1.0, GRB.BINARY, key);
+
+                    gammaVariables.put(key, gamma);
+                }
+            }
+        }
+
+        for (Phrase verb:verbPhrases){
+            GRBVar var = model.addVar(0.0, 1.0, 1.0, GRB.BINARY, "v:" + verb.getId());
