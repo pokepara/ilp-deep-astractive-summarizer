@@ -334,3 +334,47 @@ public class Parser {
 
         for (Phrase verb:verbPhrases){
             GRBVar var = model.addVar(0.0, 1.0, 1.0, GRB.BINARY, "v:" + verb.getId());
+            verbVariables.put(verb.getId(), var);
+
+            expr.addTerm(verb.getScore(), var);
+        }
+
+        for (int i=0; i<nounPhrases.size()-1; i++){
+            for (int j=i+1; j<nounPhrases.size(); j++){
+                Phrase noun1 = nounPhrases.get(i);
+                Phrase noun2 = nounPhrases.get(j);
+                String key = buildVariableKey(noun1, noun2);
+
+                GRBVar var = model.addVar(0.0, 1.0, 1.0, GRB.BINARY, "n2n:" + key);
+                nounToNounVariables.put(key, var);
+                Double score = -(noun1.getScore() + noun2.getScore()) * calculateSimilarity(noun1, noun2);
+                expr.addTerm(score, var);
+            }
+        }
+
+        for (int i=0; i<verbPhrases.size()-1; i++){
+            for (int j=i+1; j<verbPhrases.size(); j++){
+                Phrase verb1 = verbPhrases.get(i);
+                Phrase verb2 = verbPhrases.get(j);
+                String key = buildVariableKey(verb1, verb2);
+
+                GRBVar var = model.addVar(0.0, 1.0, 1.0, GRB.BINARY, "v2v:" + key);
+                verbToVerbVariables.put(key, var);
+
+                expr.addTerm(-(verb1.getScore() + verb2.getScore()) * calculateSimilarity(verb1, verb2), var);
+            }
+        }
+
+        model.update();
+        model.setObjective(expr, GRB.MAXIMIZE);
+
+        log("Finish setting objective function. Now adding constraints");
+
+        addNPValidityConstraint(model);
+        addVPValidityConstraint(model);
+        addNotIWithinIConstraint(model, nounPhrases, nounVariables);
+        addNotIWithinIConstraint(model, verbPhrases, verbVariables);
+        addPhraseCooccurrenceConstraint(model, nounPhrases, nounVariables, nounToNounVariables);
+        addPhraseCooccurrenceConstraint(model, verbPhrases, verbVariables, verbToVerbVariables);
+        addSentenceNumberConstraint(model, this.max_sentence);
+        addShortSentenceAvoidanceConstraint(model, MIN_SENTENCE_LENGTH);
