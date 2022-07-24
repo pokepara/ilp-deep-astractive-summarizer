@@ -378,3 +378,63 @@ public class Parser {
         addPhraseCooccurrenceConstraint(model, verbPhrases, verbVariables, verbToVerbVariables);
         addSentenceNumberConstraint(model, this.max_sentence);
         addShortSentenceAvoidanceConstraint(model, MIN_SENTENCE_LENGTH);
+        addPronounAvoidanceConstraint(model);
+        addLengthConstraint(model);
+
+        markTime("finish building model for optimization");
+
+        markTime("Start running optimization model");
+        model.optimize();
+        markTime("Finish running optimization model");
+
+        HashMap<Integer, Phrase> selectedNouns = new HashMap<>();
+        HashMap<Integer, Phrase> selectedVerbs = new HashMap<>();
+
+        for (Phrase phrase: nounPhrases){
+            GRBVar var = nounVariables.get(phrase.getId());
+            double selected = var.get(GRB.DoubleAttr.X);
+
+            if (selected > 0){
+                selectedNouns.put(phrase.getId(), phrase);
+            }
+        }
+
+        for (Phrase phrase: verbPhrases){
+            GRBVar var = verbVariables.get(phrase.getId());
+            double selected = var.get(GRB.DoubleAttr.X);
+
+            if (selected > 0){
+                selectedVerbs.put(phrase.getId(), phrase);
+            }
+        }
+
+        HashMap<Integer, List<Phrase>> selectedNP = new HashMap<>();
+
+        Map<Integer, String> summarySentences = new TreeMap<>();
+
+        for (String key: gammaVariables.keySet()){
+            GRBVar var = gammaVariables.get(key);
+
+            double value = var.get(GRB.DoubleAttr.X);
+            if (value > 0){
+                String[] data = key.split(":");
+                int nounId = Integer.parseInt(data[1]);
+                int verbId = Integer.parseInt(data[2]);
+
+                if (!selectedNP.keySet().contains(nounId)){
+                    selectedNP.put(nounId, new ArrayList<Phrase>());
+                }
+
+                selectedNP.get(nounId).add(selectedVerbs.get(verbId));
+            }
+        }
+
+        String summary = "";
+
+        for (Integer key: selectedNP.keySet()){
+            Phrase nounPhrase = selectedNouns.get(key);
+            List<Phrase> phrases = selectedNP.get(key);
+            String sentence = nounPhrase.getContent() + " ";
+            Integer minID = Integer.MAX_VALUE;
+
+            List<String> verbs = new ArrayList<>();
