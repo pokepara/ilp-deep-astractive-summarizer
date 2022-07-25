@@ -438,3 +438,58 @@ public class Parser {
             Integer minID = Integer.MAX_VALUE;
 
             List<String> verbs = new ArrayList<>();
+
+            Collections.sort(phrases, (a, b) -> a.getId().compareTo(b.getId()));
+
+            for(Phrase p: phrases){
+                if (!p.isNP() && minID > p.getId()){
+                    minID = p.getId();
+                }
+                verbs.add(p.getContent());
+            }
+
+            sentence += StringUtils.join(verbs, ", ");
+            summarySentences.put(minID, sentence);
+
+            System.out.println(sentence);
+        }
+
+        for (Map.Entry<Integer, String> entry: summarySentences.entrySet()){
+            summary += entry.getValue() + "\n";
+        }
+
+        return summary;
+    }
+
+    private void addNPValidityConstraint(GRBModel model) throws GRBException{
+        GRBLinExpr expr = null;
+
+        // Add NP Validity
+        for (Phrase noun: nounPhrases){
+            GRBVar nounVariable = nounVariables.get(noun.getId());
+            GRBLinExpr nounConstraint = new GRBLinExpr();
+
+            for (Phrase verb : verbPhrases){
+                if (compatibilityMatrix.getValue(noun, verb).equals(1)){
+                    String key = "gamma:" + buildVariableKey(noun, verb);
+                    GRBVar var = gammaVariables.get(key);
+
+                    expr = new GRBLinExpr();
+
+                    expr.addTerm(1.0, nounVariable);
+                    expr.addTerm(-1.0, var);
+
+                    model.addConstr(expr, GRB.GREATER_EQUAL, 0.0, "np_validity:" + buildVariableKey(noun, verb));
+
+                    nounConstraint.addTerm(1.0, var);
+                }
+            }
+
+            nounConstraint.addTerm(-1.0, nounVariable);
+            model.addConstr(nounConstraint, GRB.GREATER_EQUAL, 0.0, "np_validity:" + noun.getId());
+        }
+    }
+
+    private void addVPValidityConstraint(GRBModel model) throws GRBException{
+        // Add Verb Legality
+        for (Phrase verb: verbPhrases){
