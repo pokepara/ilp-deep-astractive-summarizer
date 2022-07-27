@@ -493,3 +493,52 @@ public class Parser {
     private void addVPValidityConstraint(GRBModel model) throws GRBException{
         // Add Verb Legality
         for (Phrase verb: verbPhrases){
+            GRBVar verbVar = verbVariables.get(verb.getId());
+            GRBLinExpr constr = new GRBLinExpr();
+            constr.addTerm(-1.0, verbVar);
+
+            for (Phrase noun: nounPhrases){
+                if (compatibilityMatrix.getValue(noun, verb).equals(1)){
+                    String key = "gamma:" + buildVariableKey(noun, verb);
+                    GRBVar var = gammaVariables.get(key);
+
+                    constr.addTerm(1.0, var);
+                }
+            }
+
+            model.addConstr(constr, GRB.EQUAL, 0.0, "vp_legality:" + verb.getId());
+        }
+    }
+
+    private void addNotIWithinIConstraint(GRBModel model, List<Phrase> phrases, HashMap<Integer, GRBVar> variables)
+            throws GRBException {
+        // Add Not i-within-i constraint
+        for (int i=0; i<phrases.size()-1; i++){
+            for (int j=i+1; j<phrases.size(); j++){
+                Phrase phrase1 = phrases.get(i);
+                Phrase phrase2 = phrases.get(j);
+                if (phrase1.getId().equals(phrase2.getParentId())){
+                    GRBVar var1 = variables.get(phrase1.getId());
+                    GRBVar var2 = variables.get(phrase2.getId());
+
+                    GRBLinExpr expr = new GRBLinExpr();
+                    expr.addTerm(1.0, var1);
+                    expr.addTerm(1.0, var2);
+
+                    model.addConstr(expr, GRB.LESS_EQUAL, 1.0,
+                            "i_within_i:" + phrase1.isNP() + ":" + phrase1.getId() + ":" + phrase2.getId());
+                }
+            }
+        }
+    }
+
+    private void addPhraseCooccurrenceConstraint(GRBModel model,
+                                                 List<Phrase> phrases,
+                                                 HashMap<Integer, GRBVar> variables,
+                                                 HashMap<String, GRBVar> linkingVariables) throws GRBException {
+        for (int i=0; i<phrases.size()-1; i++){
+            Phrase phrase_i = phrases.get(i);
+            GRBVar a_i = variables.get(phrase_i.getId());
+
+            for (int j=i+1; j<phrases.size(); j++){
+                Phrase phrase_j = phrases.get(j);
