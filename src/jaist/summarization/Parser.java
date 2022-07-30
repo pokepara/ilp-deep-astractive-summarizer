@@ -542,3 +542,72 @@ public class Parser {
 
             for (int j=i+1; j<phrases.size(); j++){
                 Phrase phrase_j = phrases.get(j);
+
+                String key = buildVariableKey(phrase_i, phrase_j);
+
+                GRBVar a_j = variables.get(phrase_j.getId());
+
+                GRBVar a_ij = linkingVariables.get(key);
+
+                GRBLinExpr expr = new GRBLinExpr();
+                expr.addTerm(1.0, a_ij);
+                expr.addTerm(-1.0, a_i);
+                model.addConstr(expr, GRB.LESS_EQUAL, 0.0, "phrase_coocurrence_1:" + phrase_i.isNP() + key);
+
+                expr = new GRBLinExpr();
+                expr.addTerm(1.0, a_ij);
+                expr.addTerm(-1.0, a_j);
+                model.addConstr(expr, GRB.LESS_EQUAL, 0.0, "phrase_coocurrence_2:" + phrase_i.isNP() + key);
+
+                expr = new GRBLinExpr();
+                expr.addTerm(1.0, a_i);
+                expr.addTerm(1.0, a_j);
+                expr.addTerm(-1.0, a_ij);
+                model.addConstr(expr, GRB.LESS_EQUAL, 1.0, "phrase_coocurrence_3:" + phrase_i.isNP() + key);
+            }
+        }
+    }
+
+    private void addSentenceNumberConstraint(GRBModel model, int K) throws GRBException{
+        GRBLinExpr expr = new GRBLinExpr();
+
+        for (Phrase phrase: nounPhrases){
+            GRBVar var = nounVariables.get(phrase.getId());
+            expr.addTerm(1.0, var);
+        }
+
+        model.addConstr(expr, GRB.LESS_EQUAL, K, "sentence_number");
+    }
+
+    private void addShortSentenceAvoidanceConstraint(GRBModel model, int M) throws GRBException {
+        for(Phrase phrase: verbPhrases){
+            if (phrase.getSentenceLength() < M || phrase.getWordLength() < MINIMUM_VERB_LENGTH){
+                GRBVar var = verbVariables.get(phrase.getId());
+                GRBLinExpr expr = new GRBLinExpr();
+                expr.addTerm(1.0, var);
+
+                model.addConstr(expr, GRB.EQUAL, 0.0, "short_sent_avoidance:" + phrase.getId());
+            }
+        }
+    }
+
+    private void addPronounAvoidanceConstraint(GRBModel model) throws GRBException{
+        for (Phrase phrase: nounPhrases){
+            if (phrase.isPronoun()){
+                GRBVar var = nounVariables.get(phrase.getId());
+                GRBLinExpr expr = new GRBLinExpr();
+                expr.addTerm(1.0, var);
+                model.addConstr(expr, GRB.EQUAL, 0.0, "pronoun_avoidance:" + phrase.getId());
+            }
+        }
+    }
+
+    private void addLengthConstraint(GRBModel model) throws GRBException{
+        GRBLinExpr expr = new GRBLinExpr();
+
+        for (Phrase phrase: nounPhrases){
+            GRBVar var = nounVariables.get(phrase.getId());
+            expr.addTerm(phrase.getWordLength(), var);
+        }
+
+        for (Phrase phrase: verbPhrases){
