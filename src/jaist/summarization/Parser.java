@@ -611,3 +611,54 @@ public class Parser {
         }
 
         for (Phrase phrase: verbPhrases){
+            GRBVar var = verbVariables.get(phrase.getId());
+            expr.addTerm(phrase.getWordLength(), var);
+        }
+
+        model.addConstr(expr, GRB.LESS_EQUAL, this.max_word_length, "length_constraint");
+    }
+
+    private String buildVariableKey(Phrase a, Phrase b){
+        return a.getId() + ":" + b.getId();
+    }
+
+    private double calculateSimilarity(Phrase a, Phrase b){
+        for(HashSet set:corefs.values()){
+            if (set.contains(a.getContent()) && set.contains(b.getContent())){
+                return 1.0;
+            }
+        }
+
+        return calculateJaccardIndex(a, b);
+    }
+
+    public void scorePhrases(){
+        int count = 0;
+        for(InputDocument doc: this.docs){
+            log("Scoring phrases againsts the doc_id " + count);
+            PhraseScorer phraseScorer = new PhraseScorer(doc);
+            for (Phrase phrase: allPhrases){
+                double score = phraseScorer.scorePhrase(phrase);
+                phrase.setScore(phrase.getScore() + score);
+            }
+            count += 1;
+        }
+    }
+
+    public String findOptimalSolution() {
+        try {
+            previousMarkedTime = System.currentTimeMillis();
+            markTime("start finding alternative NP and VP");
+            findAlternativeNPs(nounPhrases, corefs.values());
+            findAlternativeVPs(verbPhrases);
+            markTime("finish finding alternative NP and VP");
+
+            markTime("building compatibility matrix");
+            buildCompatibilityMatrix();
+            markTime("finish building compatibility matrix");
+            return startOptimization();
+        }catch (Exception ex){
+            System.out.println("Exception occurred");
+            System.out.println(ex.getMessage());
+            ex.printStackTrace();
+            return "";
