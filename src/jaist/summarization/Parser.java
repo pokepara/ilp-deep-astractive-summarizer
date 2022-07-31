@@ -662,3 +662,51 @@ public class Parser {
             System.out.println(ex.getMessage());
             ex.printStackTrace();
             return "";
+        }
+    }
+
+    private void findAlternativeNPs(List<Phrase> nounPhrases, Collection<HashSet<String>> clusters) {
+        for (HashSet<String> cluster : clusters) {
+            List<Phrase> alternativePhrases = new ArrayList<Phrase>();
+
+            for (String phraseText : cluster) {
+                for (Phrase p : nounPhrases) {
+                    if (p.getContent().equals(phraseText)) {
+                        alternativePhrases.add(p);
+                    }
+                }
+            }
+
+            int len = alternativePhrases.size();
+
+            for (int i = 0; i < len - 1; i++) {
+                for (int j = i + 1; j < len; j++) {
+                    Phrase a = alternativePhrases.get(i);
+                    Phrase b = alternativePhrases.get(j);
+                    alternativeNPs.setValue(a, b, 1);
+                    alternativeNPs.setValue(b, a, 1);
+                }
+            }
+        }
+    }
+
+    private void findAlternativeVPs(List<Phrase> verbPhrases) {
+        int len = verbPhrases.size();
+
+        for (int i = 0; i < len - 1; i++) {
+            for (int j = i + 1; j < len; j++) {
+                Phrase a = verbPhrases.get(i);
+                Phrase b = verbPhrases.get(j);
+
+                Double d = calculateJaccardIndex(a, b);
+                if (d >= this.alternative_vp_threshold){
+                    alternativeVPs.setValue(a, b, d);
+                    alternativeVPs.setValue(b, a, d);
+                }
+            }
+        }
+    }
+
+    private double calculateJaccardIndex(Phrase a, Phrase b) {
+        Set<String> conceptsInA = a.getConcepts();
+        Set<String> conceptsInB = b.getConcepts();
