@@ -710,3 +710,42 @@ public class Parser {
     private double calculateJaccardIndex(Phrase a, Phrase b) {
         Set<String> conceptsInA = a.getConcepts();
         Set<String> conceptsInB = b.getConcepts();
+
+        int count = 0;
+        Double finalScore = 0.0d;
+
+        for (String concept : conceptsInA) {
+            if (conceptsInB.contains(concept)) {
+                count++;
+            }
+        }
+
+        finalScore = (double) count / (conceptsInA.size() + conceptsInB.size() - count);
+        if (finalScore.isNaN()){
+            return 0.0;
+        }
+
+        return finalScore;
+    }
+
+    public void printLog(){
+        for(Phrase phrase: nounPhrases){
+            log(phrase.toString());
+        }
+
+        for(Phrase phrase: verbPhrases){
+            log(phrase.toString());
+        }
+
+        for(String key: corefs.keySet()){
+            log(key + ": " + corefs.get(key).toString());
+        }
+    }
+    private void log(String text){
+        System.out.println(text);
+    }
+
+    private void markTime(String text){
+        System.out.println(new Timestamp(System.currentTimeMillis()) + ": " + text);
+    }
+}
