@@ -6,4 +6,7 @@ import java.util.HashMap;
 import java.util.Set;
 
 /**
- * Created by chie
+ * Created by chientran on 10/6/15.
+ */
+public class PhraseMatrix {
+    priv
