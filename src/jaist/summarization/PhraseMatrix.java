@@ -13,3 +13,6 @@ public class PhraseMatrix {
 
     public PhraseMatrix(){
         matrix = new HashMap<>();
+    }
+
+    public void setValue(Phrase nou
