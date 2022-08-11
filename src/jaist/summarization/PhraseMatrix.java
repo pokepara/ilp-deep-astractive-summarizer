@@ -11,4 +11,5 @@ import java.util.Set;
 public class PhraseMatrix {
     private HashMap<String, Object> matrix;
 
-    public Phr
+    public PhraseMatrix(){
+        matrix = new HashMap<>();
