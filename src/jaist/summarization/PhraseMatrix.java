@@ -15,4 +15,5 @@ public class PhraseMatrix {
         matrix = new HashMap<>();
     }
 
-    public void setValue(Phrase nounPhrase, Phrase verbPhrase, Object value
+    public void setValue(Phrase nounPhrase, Phrase verbPhrase, Object value){
+        matrix.put(buildKey(nounPhrase, v
