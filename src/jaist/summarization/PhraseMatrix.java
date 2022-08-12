@@ -15,4 +15,4 @@ public class PhraseMatrix {
         matrix = new HashMap<>();
     }
 
-    public void setValue(Phrase nou
+    public void setValue(Phrase nounPhrase, Phrase verbPhrase, Object value
