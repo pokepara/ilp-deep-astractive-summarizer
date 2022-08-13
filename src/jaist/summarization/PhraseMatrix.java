@@ -17,4 +17,5 @@ public class PhraseMatrix {
 
     public void setValue(Phrase nounPhrase, Phrase verbPhrase, Object value){
         matrix.put(buildKey(nounPhrase, verbPhrase), value);
-        //matrix.put(bu
+        //matrix.put(buildKey(verbPhrase, nounPhrase), value);
+    
