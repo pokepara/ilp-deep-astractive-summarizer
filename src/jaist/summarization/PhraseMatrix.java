@@ -21,4 +21,7 @@ public class PhraseMatrix {
     }
 
     public Object getValue(String key){
-    
+        return matrix.get(key);
+    }
+
+    public Object getValue
