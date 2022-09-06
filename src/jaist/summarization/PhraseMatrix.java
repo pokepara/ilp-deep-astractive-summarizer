@@ -24,4 +24,5 @@ public class PhraseMatrix {
         return matrix.get(key);
     }
 
-    public Object getValue
+    public Object getValue(Phrase a, Phrase b){
+        return matrix.get(buildKey(a, b
