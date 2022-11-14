@@ -25,4 +25,7 @@ public class PhraseMatrix {
     }
 
     public Object getValue(Phrase a, Phrase b){
-        return matrix.get(buildKey(a, b
+        return matrix.get(buildKey(a, b));
+    }
+
+    public boolean exists(Phrase a, Phrase b
