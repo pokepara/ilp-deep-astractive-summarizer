@@ -29,4 +29,7 @@ public class PhraseMatrix {
     }
 
     public boolean exists(Phrase a, Phrase b){
-        return matrix.get(buildKey
+        return matrix.get(buildKey(a, b)) != null;
+    }
+
+    private String b
