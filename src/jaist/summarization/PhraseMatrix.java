@@ -32,4 +32,5 @@ public class PhraseMatrix {
         return matrix.get(buildKey(a, b)) != null;
     }
 
-    private String b
+    private String buildKey(Phrase a, Phrase b){
+        String key = 
