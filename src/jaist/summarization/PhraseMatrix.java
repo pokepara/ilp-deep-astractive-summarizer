@@ -35,4 +35,6 @@ public class PhraseMatrix {
     private String buildKey(Phrase a, Phrase b){
         String key = "";
         if (a.isNP()){
-            k
+            key += "NP_";
+        }else{
+            key += "
