@@ -41,4 +41,6 @@ public class PhraseMatrix {
         }
 
         key += a.getId() + ":";
-     
+        if (b.isNP()){
+            key += "NP_";
+        }else{
