@@ -47,4 +47,9 @@ public class PhraseMatrix {
             key += "VP_";
         }
 
-        key +=
+        key += b.getId();
+
+        return key;
+    }
+
+    
