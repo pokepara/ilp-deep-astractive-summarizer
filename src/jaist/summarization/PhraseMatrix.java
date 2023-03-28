@@ -52,4 +52,5 @@ public class PhraseMatrix {
         return key;
     }
 
-    
+    public void printOut(){
+        for(String key: m
