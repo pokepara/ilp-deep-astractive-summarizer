@@ -54,4 +54,6 @@ public class PhraseMatrix {
 
     public void printOut(){
         for(String key: matrix.keySet()){
-            System.out.println
+            System.out.println(key + " -> " + matrix.get(key));
+        }
+    }
