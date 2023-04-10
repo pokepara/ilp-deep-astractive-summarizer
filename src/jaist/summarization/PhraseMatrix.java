@@ -57,3 +57,6 @@ public class PhraseMatrix {
             System.out.println(key + " -> " + matrix.get(key));
         }
     }
+
+    public Set<String> keySet(){
+        r
