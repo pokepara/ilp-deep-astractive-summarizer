@@ -59,4 +59,6 @@ public class PhraseMatrix {
     }
 
     public Set<String> keySet(){
-        r
+        return matrix.keySet();
+    }
+}
