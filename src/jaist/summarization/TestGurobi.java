@@ -25,3 +25,17 @@ public class TestGurobi {
         expr.addTerm(18, m);
         expr.addTerm(30, n);
         expr.addTerm(-0, t);
+
+        model.update();
+        model.setObjective(expr, GRB.MAXIMIZE);
+
+        model.optimize();
+
+        System.out.println(x.get(GRB.DoubleAttr.X));
+        System.out.println(y.get(GRB.DoubleAttr.X));
+        System.out.println(z.get(GRB.DoubleAttr.X));
+        System.out.println(m.get(GRB.DoubleAttr.X));
+        System.out.println(n.get(GRB.DoubleAttr.X));
+        System.out.println(t.get(GRB.DoubleAttr.X));
+    }
+}
