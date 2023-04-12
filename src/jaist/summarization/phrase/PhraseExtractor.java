@@ -30,3 +30,52 @@ public class PhraseExtractor {
     public PhraseExtractor(InputDocument inputDocument, PhraseMatrix indicatorMatrix){
         this.inputDocument = inputDocument;
         this.indicatorMatrix = indicatorMatrix;
+    }
+
+    public List<Phrase> extractAllPhrases() {
+        List<Phrase> allPhrases = new ArrayList<>();
+
+        List<CoreMap> sentences = inputDocument.getSentences();
+        List<Thread> threads = new ArrayList<>();
+
+        for (CoreMap sentence : sentences) {
+            List<Phrase> phrasesInSentence = extractPhrasesFromSentence(sentence);
+
+            allPhrases.addAll(phrasesInSentence);
+            for (int i=0; i<phrasesInSentence.size()-1; i++){
+                for (int j=i+1; j<phrasesInSentence.size(); j++){
+                    Phrase a = phrasesInSentence.get(i);
+                    Phrase b = phrasesInSentence.get(j);
+                    if (a.isNP() && !b.isNP() && a.getSentenceNodeId() == b.getSentenceNodeId()){
+                        indicatorMatrix.setValue(a, b, 1);
+                    }
+                }
+            }
+        }
+
+        return allPhrases;
+    }
+
+    //Use this if we want a seperate LexicializedParser instead of ParserAnnotation
+    private List<Phrase> extractPhrasesWithLexicalParser(String text){
+        LexicalizedParser lexicalizedParser = LexicalizedParser.loadModel(PARSER_MODEL);
+        List<Phrase> allPhrases = new ArrayList<>();
+
+        Reader reader = new StringReader(text);
+        DocumentPreprocessor dp = new DocumentPreprocessor(reader);
+        for (List<HasWord> sentence : dp) {
+            Tree tree = lexicalizedParser.parse(sentence);
+            // ignore the root node
+            tree = tree.children()[0];
+            allPhrases.addAll(extractSentenceNode(tree, sentence.size()));
+        }
+
+        return allPhrases;
+    }
+
+    private String getPhrase(Tree tree) {
+        List<String> words = new ArrayList<String>();
+        List<Tree> leaves = tree.getLeaves();
+        for (Tree leaf : leaves) {
+            words.add(leaf.value());
+        }
