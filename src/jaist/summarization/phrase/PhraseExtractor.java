@@ -140,3 +140,59 @@ public class PhraseExtractor {
                     for (Tree subTree: child.children()){
                         if (subTree.value().equals("VP")){
                             subVPCount += 1;
+                        }
+                    }
+
+                    if (subVPCount < 2){
+                        continue;
+                    }
+
+                    String firstChildLabel = child.getChild(0).value();
+                    if (firstChildLabel.equals("MD") || firstChildLabel.equals("VBZ")
+                            || firstChildLabel.equals("VBP") || firstChildLabel.equals("VBD")){
+                        continue;
+                    }
+                }
+
+                if (nodeValue.equals("S") || nodeValue.equals("SBAR")){
+                    sentenceNodeID += 1;
+                }
+
+                for (Tree subChild: child.children()){
+                    String subchildValue = subChild.value();
+
+                    if ((isNP && subchildValue.equals("NP")) || (!isNP && subchildValue.equals("VP"))){
+                        Phrase subPhrase = buildPhrase(getPhrase(subChild), isNP, phrase.getId(), sentenceNodeID);
+                        subPhrase.setSentenceLength(sentenceLength);
+                        phrases.add(subPhrase);
+                    }
+                }
+            }
+        }
+
+        for(Phrase p: tempPhrases){
+            p.setSentenceLength(s_length);
+        }
+        return phrases;
+    }
+
+    private Phrase buildPhrase(String content, boolean isNP, int parentID, int sentenceNodeID){
+        Set<String> concepts = inputDocument.extractConceptsFromString(content).keySet();
+
+        Phrase p = new Phrase(content, isNP, parentID, sentenceNodeID);
+        p.setConcepts(concepts);
+
+        return p;
+    }
+
+    public static void main(String[] args) throws Exception {
+        String parserModel = "edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz";
+        LexicalizedParser lp = LexicalizedParser.loadModel(parserModel);
+
+        Options options = new Options();
+        options.addOption("in", true, "input folder containing all text files");
+        CommandLineParser commandLineParser = new DefaultParser();
+        CommandLine cmd = commandLineParser.parse(options, args);
+
+        String filePath = cmd.getOptionValue("in");
+        //File file = new File(filePath);
