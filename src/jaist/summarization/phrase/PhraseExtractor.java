@@ -79,3 +79,64 @@ public class PhraseExtractor {
         for (Tree leaf : leaves) {
             words.add(leaf.value());
         }
+
+        return String.join(" ", words);
+    }
+
+    private Integer getSentenceID() {
+        sentenceId += 1;
+
+        return sentenceId;
+    }
+
+    private List<Phrase> extractPhrasesFromSentence(CoreMap sentence){
+        int sentenceLength = StringUtils.countWords(sentence.toString());
+
+        List<Phrase> phrases = new ArrayList<Phrase>();
+
+        Tree tree = sentence.get(TreeCoreAnnotations.TreeAnnotation.class);
+
+        // ignore the root node
+        tree = tree.children()[0];
+        phrases.addAll(extractSentenceNode(tree, sentenceLength));
+
+        return phrases;
+    }
+
+    private List<Phrase> extractSentenceNode(Tree rootNode, Integer sentenceLength){
+        List<Phrase> phrases = new ArrayList<Phrase>();
+
+        int s_length = 0;
+        List<Phrase> tempPhrases = new ArrayList<>();
+        int sentenceNodeID = 0;
+        for (Tree child : rootNode.children()) {
+            String nodeValue = child.value();
+
+            if (nodeValue.equals("NP") || nodeValue.equals("VP") || nodeValue.equals("S") || nodeValue.equals("SBAR")) {
+                Boolean isNP = !nodeValue.equals("VP");
+
+                String phraseContent = getPhrase(child);
+
+                Phrase phrase = buildPhrase(phraseContent, isNP, -1, 0);
+                phrase.setSentenceLength(sentenceLength);
+
+                if (nodeValue.equals("NP") || nodeValue.equals("VP")){
+                    s_length += phrase.getWordLength();
+                    tempPhrases.add(phrase);
+                }
+
+                if (nodeValue.equals("S") || nodeValue.equals("SBAR")){
+                    sentenceLength = phrase.getWordLength();
+                }
+
+                phrases.add(phrase);
+
+                // expand one step further
+                Boolean shouldExpand = true;
+
+                // do not expand VP node if it does not have more than one sub-VPs
+                if (!isNP){
+                    int subVPCount = 0;
+                    for (Tree subTree: child.children()){
+                        if (subTree.value().equals("VP")){
+                            subVPCount += 1;
