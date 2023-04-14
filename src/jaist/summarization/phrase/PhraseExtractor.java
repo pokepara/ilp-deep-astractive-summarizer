@@ -196,3 +196,17 @@ public class PhraseExtractor {
 
         String filePath = cmd.getOptionValue("in");
         //File file = new File(filePath);
+        //String text = IOUtils.slurpFile(file);
+        String text = "And the better shape Clinton is in as his term ends, the better chance Gore, his sidekick for six years now, stands in the presidential nomination process and, ultimately, the election.";
+
+        InputDocument doc = new InputDocument(text);
+
+        PhraseMatrix indicatorMatrix = new PhraseMatrix();
+        List<Phrase> phrases = new PhraseExtractor(doc, indicatorMatrix).extractAllPhrases();
+
+        for (Phrase p: phrases){
+            System.out.println(p.toString());
+        }
+    }
+
+}
