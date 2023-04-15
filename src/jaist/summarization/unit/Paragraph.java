@@ -1,1 +1,3 @@
-package jaist.summariza
+package jaist.summarization.unit;
+
+import edu.stanford.nlp.ling.CoreAnn
