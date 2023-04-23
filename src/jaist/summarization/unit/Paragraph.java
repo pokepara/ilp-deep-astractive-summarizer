@@ -9,4 +9,9 @@ import edu.stanford.nlp.util.CollectionUtils;
 import edu.stanford.nlp.util.CoreMap;
 
 import jaist.summarization.AnnotatorHub;
-import jaist.summarization.StopwordRemo
+import jaist.summarization.StopwordRemover;
+
+import java.util.*;
+
+/**
+ * Created 
