@@ -18,4 +18,5 @@ import java.util.*;
  */
 public class Paragraph {
     private Annotation doc = null;
-    p
+    private List<CoreLabel> tokens = null;
+    private Ha
