@@ -14,4 +14,6 @@ import jaist.summarization.StopwordRemover;
 import java.util.*;
 
 /**
- * Created 
+ * Created by chientran on 9/29/15.
+ */
+public class Paragraph
