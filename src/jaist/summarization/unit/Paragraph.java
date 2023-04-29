@@ -16,4 +16,6 @@ import java.util.*;
 /**
  * Created by chientran on 9/29/15.
  */
-public class Paragraph
+public class Paragraph {
+    private Annotation doc = null;
+    p
