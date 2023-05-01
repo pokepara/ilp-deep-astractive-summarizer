@@ -19,4 +19,4 @@ import java.util.*;
 public class Paragraph {
     private Annotation doc = null;
     private List<CoreLabel> tokens = null;
-    private Ha
+    private HashMap<String, Integer> conceptsToFrequency;
