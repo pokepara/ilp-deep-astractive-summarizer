@@ -21,4 +21,5 @@ public class Paragraph {
     private List<CoreLabel> tokens = null;
     private HashMap<String, Integer> conceptsToFrequency;
 
-    public Paragraph(HashMa
+    public Paragraph(HashMap<String, Integer> conceptsToFrequency){
+       
