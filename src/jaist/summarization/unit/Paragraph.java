@@ -20,3 +20,5 @@ public class Paragraph {
     private Annotation doc = null;
     private List<CoreLabel> tokens = null;
     private HashMap<String, Integer> conceptsToFrequency;
+
+    public Paragraph(HashMa
