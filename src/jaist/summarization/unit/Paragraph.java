@@ -22,4 +22,7 @@ public class Paragraph {
     private HashMap<String, Integer> conceptsToFrequency;
 
     public Paragraph(HashMap<String, Integer> conceptsToFrequency){
-       
+        this.conceptsToFrequency = conceptsToFrequency;
+    }
+
+    publ
