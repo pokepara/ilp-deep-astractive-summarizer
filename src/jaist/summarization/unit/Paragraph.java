@@ -29,4 +29,5 @@ public class Paragraph {
         return conceptsToFrequency.keySet();
     }
     public Integer countFrequency(String concept){
-        if (conceptsToFrequency.contai
+        if (conceptsToFrequency.containsKey(concept)){
+            return conceptsToFrequ
