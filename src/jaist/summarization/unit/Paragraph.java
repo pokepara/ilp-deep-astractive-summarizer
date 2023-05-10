@@ -25,4 +25,5 @@ public class Paragraph {
         this.conceptsToFrequency = conceptsToFrequency;
     }
 
-    publ
+    public Set<String> getConcepts(){
+        return conceptsTo
