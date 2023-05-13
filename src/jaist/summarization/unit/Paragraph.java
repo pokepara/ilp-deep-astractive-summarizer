@@ -30,4 +30,7 @@ public class Paragraph {
     }
     public Integer countFrequency(String concept){
         if (conceptsToFrequency.containsKey(concept)){
-            return conceptsToFrequ
+            return conceptsToFrequency.get(concept);
+        }else{
+            return 0;
+    
