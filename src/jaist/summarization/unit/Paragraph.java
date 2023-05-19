@@ -33,4 +33,6 @@ public class Paragraph {
             return conceptsToFrequency.get(concept);
         }else{
             return 0;
-    
+        }
+    }
+}
