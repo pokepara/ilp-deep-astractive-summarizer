@@ -17,4 +17,6 @@ import java.util.*;
  * Created by chientran on 9/29/15.
  */
 public class Phrase{
-    S
+    String content = null;
+    Boolean isNP = true;
+ 
