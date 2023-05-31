@@ -14,4 +14,7 @@ import jaist.summarization.utils.StringUtils;
 import java.util.*;
 
 /**
- * Created by
+ * Created by chientran on 9/29/15.
+ */
+public class Phrase{
+    S
