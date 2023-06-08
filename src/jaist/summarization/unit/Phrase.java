@@ -20,4 +20,5 @@ public class Phrase{
     String content = null;
     Boolean isNP = true;
     Double score = 0.0d;
-    Integer paren
+    Integer parentId = -1;
+    Integer sentenceNodeId = 0;
