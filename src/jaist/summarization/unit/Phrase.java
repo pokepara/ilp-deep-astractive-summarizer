@@ -22,3 +22,8 @@ public class Phrase{
     Double score = 0.0d;
     Integer parentId = -1;
     Integer sentenceNodeId = 0;
+    int id;
+
+    int sentenceLength = 0;
+
+    
