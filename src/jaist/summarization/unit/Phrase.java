@@ -26,4 +26,5 @@ public class Phrase{
 
     int sentenceLength = 0;
 
-    
+    private static int _npID = 0;
+    private st
