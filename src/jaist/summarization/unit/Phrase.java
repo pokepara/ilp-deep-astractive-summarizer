@@ -28,4 +28,4 @@ public class Phrase{
 
     private static int _npID = 0;
     private static int _vpID = 0;
-    private static String[] p
+    private static String[] pronouns = {"it", "i", "you", "he", "they", "we
