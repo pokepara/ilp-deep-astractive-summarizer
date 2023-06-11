@@ -27,4 +27,5 @@ public class Phrase{
     int sentenceLength = 0;
 
     private static int _npID = 0;
-    private st
+    private static int _vpID = 0;
+    private static String[] p
