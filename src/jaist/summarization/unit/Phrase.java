@@ -32,4 +32,5 @@ public class Phrase{
 
     private Set<String> concepts = null;
 
-    
+    public Phrase(String content, Boolean isNP){
+       
