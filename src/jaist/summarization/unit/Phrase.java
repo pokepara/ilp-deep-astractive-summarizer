@@ -34,4 +34,6 @@ public class Phrase{
 
     public Phrase(String content, Boolean isNP){
         this.content = content;
-        this.is
+        this.isNP = isNP;
+        if (isNP){
+           
