@@ -38,4 +38,7 @@ public class Phrase{
         if (isNP){
             id = _npID;
             _npID += 1;
-        
+        }else{
+            id = _vpID;
+            _vpID += 1;
+   
