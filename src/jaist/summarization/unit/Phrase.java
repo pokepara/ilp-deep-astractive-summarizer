@@ -36,4 +36,6 @@ public class Phrase{
         this.content = content;
         this.isNP = isNP;
         if (isNP){
-           
+            id = _npID;
+            _npID += 1;
+        
