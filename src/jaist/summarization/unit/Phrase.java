@@ -41,4 +41,7 @@ public class Phrase{
         }else{
             id = _vpID;
             _vpID += 1;
-   
+        }
+    }
+
+    public Phrase(String conte
