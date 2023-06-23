@@ -44,4 +44,5 @@ public class Phrase{
         }
     }
 
-    public Phrase(String conte
+    public Phrase(String content, Boolean isNP, Integer parentId){
+     
