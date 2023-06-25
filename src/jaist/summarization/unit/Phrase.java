@@ -48,4 +48,4 @@ public class Phrase{
         this(content, isNP, parentId, 0);
     }
 
-    public Phrase(String content, Boo
+    public Phrase(String content, Boolean isNP, Integer parentId, Integer sentenceNo
