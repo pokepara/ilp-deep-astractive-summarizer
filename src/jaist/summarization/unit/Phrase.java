@@ -45,4 +45,5 @@ public class Phrase{
     }
 
     public Phrase(String content, Boolean isNP, Integer parentId){
-     
+        this(content, isNP, parentId, 0);
+ 
