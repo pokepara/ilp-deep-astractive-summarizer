@@ -51,4 +51,7 @@ public class Phrase{
     public Phrase(String content, Boolean isNP, Integer parentId, Integer sentenceNodeId){
         this(content, isNP);
         this.parentId = parentId;
-        this.sentenceNodeId = sentenc
+        this.sentenceNodeId = sentenceNodeId;
+    }
+
+    public String getContent(){
