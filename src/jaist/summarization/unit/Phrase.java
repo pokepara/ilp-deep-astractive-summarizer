@@ -55,4 +55,4 @@ public class Phrase{
     }
 
     public String getContent(){ return this.content; }
-    public void s
+    public void setContent(String content){ this.content
