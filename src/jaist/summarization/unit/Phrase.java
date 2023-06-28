@@ -55,4 +55,6 @@ public class Phrase{
     }
 
     public String getContent(){ return this.content; }
-    public void setContent(String content){ this.content
+    public void setContent(String content){ this.content = content; }
+
+    public Boolean isNP(){
