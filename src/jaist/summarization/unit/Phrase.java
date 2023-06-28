@@ -54,4 +54,5 @@ public class Phrase{
         this.sentenceNodeId = sentenceNodeId;
     }
 
-    public String getContent(){
+    public String getContent(){ return this.content; }
+    public void s
