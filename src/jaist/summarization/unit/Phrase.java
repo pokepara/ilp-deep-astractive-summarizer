@@ -61,4 +61,5 @@ public class Phrase{
         return this.isNP;
     }
 
-    public vo
+    public void setScore(Double value){
+        this.score = v
