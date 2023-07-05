@@ -62,4 +62,8 @@ public class Phrase{
     }
 
     public void setScore(Double value){
-        this.score = v
+        this.score = value;
+    }
+
+    public Double getScore(){
+     
