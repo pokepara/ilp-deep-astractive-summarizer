@@ -66,4 +66,5 @@ public class Phrase{
     }
 
     public Double getScore(){
-     
+        if (this.score.isNaN()){
+            System.o
