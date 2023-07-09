@@ -67,4 +67,5 @@ public class Phrase{
 
     public Double getScore(){
         if (this.score.isNaN()){
-            System.o
+            System.out.println("What the hell" + this.toString());
+     
