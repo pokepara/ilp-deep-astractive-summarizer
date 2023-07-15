@@ -72,4 +72,5 @@ public class Phrase{
         return this.score;
     }
 
-   
+    public String toString(){
+        return this.co
