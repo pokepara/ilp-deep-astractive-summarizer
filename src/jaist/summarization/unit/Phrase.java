@@ -73,4 +73,7 @@ public class Phrase{
     }
 
     public String toString(){
-        return this.co
+        return this.content + ": " + this.score;
+    }
+
+    public
