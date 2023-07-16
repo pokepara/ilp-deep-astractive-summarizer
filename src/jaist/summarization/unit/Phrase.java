@@ -76,4 +76,5 @@ public class Phrase{
         return this.content + ": " + this.score;
     }
 
-    public
+    public Integer getId(){ return this.id; }
+
