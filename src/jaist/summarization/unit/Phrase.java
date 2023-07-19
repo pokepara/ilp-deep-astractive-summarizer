@@ -79,4 +79,8 @@ public class Phrase{
     public Integer getId(){ return this.id; }
 
     public void setConcepts(Set<String> concepts){
-        this.concepts = concept
+        this.concepts = concepts;
+    }
+
+    public void generateConcepts(){
+    
