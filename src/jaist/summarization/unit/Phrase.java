@@ -78,3 +78,4 @@ public class Phrase{
 
     public Integer getId(){ return this.id; }
 
+    public void setConcept
