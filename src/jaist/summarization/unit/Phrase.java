@@ -83,4 +83,6 @@ public class Phrase{
     }
 
     public void generateConcepts(){
-    
+        if (concepts != null) return;
+
+        Annota
