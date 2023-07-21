@@ -86,4 +86,4 @@ public class Phrase{
         if (concepts != null) return;
 
         Annotation doc = new Annotation(content);
-        
+        AnnotatorHub.getInstance().getPipeline().annot
