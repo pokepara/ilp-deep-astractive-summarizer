@@ -86,4 +86,6 @@ public class Phrase{
         if (concepts != null) return;
 
         Annotation doc = new Annotation(content);
-        AnnotatorHub.getInstance().getPipeline().annot
+        AnnotatorHub.getInstance().getPipeline().annotate(doc);
+
+        List<CoreLabel> tokens = doc
