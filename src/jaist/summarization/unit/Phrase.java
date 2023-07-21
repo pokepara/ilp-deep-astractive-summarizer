@@ -85,4 +85,5 @@ public class Phrase{
     public void generateConcepts(){
         if (concepts != null) return;
 
-        Annota
+        Annotation doc = new Annotation(content);
+        
