@@ -88,4 +88,6 @@ public class Phrase{
         Annotation doc = new Annotation(content);
         AnnotatorHub.getInstance().getPipeline().annotate(doc);
 
-        List<CoreLabel> tokens = doc.get(CoreAnnotations.TokensAnnotation.c
+        List<CoreLabel> tokens = doc.get(CoreAnnotations.TokensAnnotation.class);
+
+        tokens = StopwordRe
