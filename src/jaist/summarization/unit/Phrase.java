@@ -90,4 +90,6 @@ public class Phrase{
 
         List<CoreLabel> tokens = doc.get(CoreAnnotations.TokensAnnotation.class);
 
-        tokens = StopwordRe
+        tokens = StopwordRemover.removeStopwords(tokens);
+
+     
