@@ -92,4 +92,6 @@ public class Phrase{
 
         tokens = StopwordRemover.removeStopwords(tokens);
 
-     
+        concepts = new HashSet<>();
+
+      
