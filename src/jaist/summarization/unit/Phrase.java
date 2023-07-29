@@ -94,4 +94,6 @@ public class Phrase{
 
         concepts = new HashSet<>();
 
-      
+        List<String> unigrams = new ArrayList<>();
+
+        
