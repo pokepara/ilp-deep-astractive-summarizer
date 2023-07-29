@@ -97,4 +97,5 @@ public class Phrase{
         List<String> unigrams = new ArrayList<>();
 
         for(CoreLabel token: tokens){
-            // get lemm
+            // get lemma tokens which are not stopwords
+            String textLemma = to
