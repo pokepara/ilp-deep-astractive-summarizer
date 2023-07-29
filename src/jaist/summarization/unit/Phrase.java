@@ -96,4 +96,5 @@ public class Phrase{
 
         List<String> unigrams = new ArrayList<>();
 
-        
+        for(CoreLabel token: tokens){
+            // get lemm
