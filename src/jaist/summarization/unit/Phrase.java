@@ -98,4 +98,6 @@ public class Phrase{
 
         for(CoreLabel token: tokens){
             // get lemma tokens which are not stopwords
-            String textLemma = to
+            String textLemma = token.get(CoreAnnotations.LemmaAnnotation.class);
+
+     
