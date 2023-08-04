@@ -102,4 +102,7 @@ public class Phrase{
 
             concepts.add(textLemma);
 
-            u
+            unigrams.add(textLemma);
+        }
+
+        
