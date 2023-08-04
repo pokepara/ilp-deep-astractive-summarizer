@@ -100,4 +100,6 @@ public class Phrase{
             // get lemma tokens which are not stopwords
             String textLemma = token.get(CoreAnnotations.LemmaAnnotation.class);
 
-     
+            concepts.add(textLemma);
+
+            u
