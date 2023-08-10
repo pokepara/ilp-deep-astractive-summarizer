@@ -105,4 +105,4 @@ public class Phrase{
             unigrams.add(textLemma);
         }
 
-        
+        for (List<String> bigramToken: Collection
