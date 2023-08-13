@@ -105,4 +105,5 @@ public class Phrase{
             unigrams.add(textLemma);
         }
 
-        for (List<String> bigramToken: Collection
+        for (List<String> bigramToken: CollectionUtils.getNGrams(unigrams, 2, 2)){
+            concepts.add(Str
