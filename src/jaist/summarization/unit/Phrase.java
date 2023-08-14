@@ -106,4 +106,7 @@ public class Phrase{
         }
 
         for (List<String> bigramToken: CollectionUtils.getNGrams(unigrams, 2, 2)){
-            concepts.add(Str
+            concepts.add(String.join(" ", bigramToken));
+        }
+
+       
