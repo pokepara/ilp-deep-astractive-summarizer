@@ -109,4 +109,5 @@ public class Phrase{
             concepts.add(String.join(" ", bigramToken));
         }
 
-       
+        // get named entity from phrase
+        Annotator
