@@ -112,4 +112,4 @@ public class Phrase{
         // get named entity from phrase
         AnnotatorHub.getInstance().getEntityMentionsAnnotator().annotate(doc);
 
-        for (CoreMap 
+        for (CoreMap mention: doc.get(CoreAnnotations.MentionsAnnotation.class)) {
