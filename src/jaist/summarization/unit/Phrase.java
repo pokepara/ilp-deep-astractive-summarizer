@@ -113,3 +113,4 @@ public class Phrase{
         AnnotatorHub.getInstance().getEntityMentionsAnnotator().annotate(doc);
 
         for (CoreMap mention: doc.get(CoreAnnotations.MentionsAnnotation.class)) {
+            String ner = mention.get(Co
