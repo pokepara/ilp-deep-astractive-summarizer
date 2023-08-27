@@ -114,3 +114,7 @@ public class Phrase{
 
         for (CoreMap mention: doc.get(CoreAnnotations.MentionsAnnotation.class)) {
             String ner = mention.get(CoreAnnotations.TextAnnotation.class);
+            concepts.add(ner);
+        }
+    }
+    public 
