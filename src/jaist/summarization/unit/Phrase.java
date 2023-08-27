@@ -117,4 +117,5 @@ public class Phrase{
             concepts.add(ner);
         }
     }
-    public 
+    public Set<String> getConcepts(){
+        if (concepts == null){
