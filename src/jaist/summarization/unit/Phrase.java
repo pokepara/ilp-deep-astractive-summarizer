@@ -119,3 +119,7 @@ public class Phrase{
     }
     public Set<String> getConcepts(){
         if (concepts == null){
+            generateConcepts();
+        }
+
+        
