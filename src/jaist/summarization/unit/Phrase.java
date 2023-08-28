@@ -122,4 +122,7 @@ public class Phrase{
             generateConcepts();
         }
 
-        
+        return concepts;
+    }
+
+    public Integer ge
