@@ -125,4 +125,6 @@ public class Phrase{
         return concepts;
     }
 
-    public Integer ge
+    public Integer getParentId(){ return parentId; }
+
+    public Integer 
