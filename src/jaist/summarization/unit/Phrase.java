@@ -127,4 +127,4 @@ public class Phrase{
 
     public Integer getParentId(){ return parentId; }
 
-    public Integer 
+    public Integer getSentenceLength(){ return sentenceLength; }
