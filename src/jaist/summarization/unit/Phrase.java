@@ -130,4 +130,5 @@ public class Phrase{
     public Integer getSentenceLength(){ return sentenceLength; }
     public void setSentenceLength(int value){ this.sentenceLength = value; }
 
-    public Boolean isPronoun()
+    public Boolean isPronoun(){
+        return isNP() && Arrays.asList(pronou
