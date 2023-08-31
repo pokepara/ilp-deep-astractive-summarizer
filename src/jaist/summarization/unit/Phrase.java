@@ -128,4 +128,6 @@ public class Phrase{
     public Integer getParentId(){ return parentId; }
 
     public Integer getSentenceLength(){ return sentenceLength; }
-    public void setSentenceLength(int value
+    public void setSentenceLength(int value){ this.sentenceLength = value; }
+
+    public Boolean isPronoun()
