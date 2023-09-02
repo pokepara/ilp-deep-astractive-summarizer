@@ -134,4 +134,5 @@ public class Phrase{
         return isNP() && Arrays.asList(pronouns).contains(this.content.toLowerCase());
     }
 
-    public Integer getWord
+    public Integer getWordLength(){
+        return StringUtils.countWords(this
