@@ -131,4 +131,7 @@ public class Phrase{
     public void setSentenceLength(int value){ this.sentenceLength = value; }
 
     public Boolean isPronoun(){
-        return isNP() && Arrays.asList(pronouns).contains(this.content.toLowerC
+        return isNP() && Arrays.asList(pronouns).contains(this.content.toLowerCase());
+    }
+
+    public Integer getWord
