@@ -135,4 +135,7 @@ public class Phrase{
     }
 
     public Integer getWordLength(){
-        return StringUtils.countWords(this
+        return StringUtils.countWords(this.content);
+    }
+
+    public boolean equals(String ph
