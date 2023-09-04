@@ -138,4 +138,5 @@ public class Phrase{
         return StringUtils.countWords(this.content);
     }
 
-    public boolean equals(String ph
+    public boolean equals(String phrase){
+        return this.content.equals(ph
