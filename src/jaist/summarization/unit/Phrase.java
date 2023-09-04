@@ -142,4 +142,6 @@ public class Phrase{
         return this.content.equals(phrase);
     }
 
-    public int getSentenceNode
+    public int getSentenceNodeId(){ return sentenceNodeId; }
+
+    public stat
