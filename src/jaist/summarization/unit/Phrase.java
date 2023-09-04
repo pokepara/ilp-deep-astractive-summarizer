@@ -139,4 +139,7 @@ public class Phrase{
     }
 
     public boolean equals(String phrase){
-        return this.content.equals(ph
+        return this.content.equals(phrase);
+    }
+
+    public int getSentenceNode
