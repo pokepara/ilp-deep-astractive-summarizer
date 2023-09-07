@@ -144,4 +144,5 @@ public class Phrase{
 
     public int getSentenceNodeId(){ return sentenceNodeId; }
 
-    public stat
+    public static void main(String[] args){
+        String t = "
