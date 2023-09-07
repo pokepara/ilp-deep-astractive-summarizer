@@ -146,4 +146,7 @@ public class Phrase{
 
     public static void main(String[] args){
         String t = "This is my question; what   _ yeah";
-        Phrase p = new Phrase(t,
+        Phrase p = new Phrase(t, false);
+        System.out.println(p.getWordLength());
+
+    
