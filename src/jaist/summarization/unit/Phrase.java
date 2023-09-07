@@ -145,4 +145,5 @@ public class Phrase{
     public int getSentenceNodeId(){ return sentenceNodeId; }
 
     public static void main(String[] args){
-        String t = "
+        String t = "This is my question; what   _ yeah";
+        Phrase p = new Phrase(t,
