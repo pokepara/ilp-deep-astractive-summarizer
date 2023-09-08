@@ -1,3 +1,4 @@
 package jaist.summarization.utils;
 
-impo
+import jaist.summarization.InputDocument;
+imp
