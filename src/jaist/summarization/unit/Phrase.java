@@ -149,4 +149,6 @@ public class Phrase{
         Phrase p = new Phrase(t, false);
         System.out.println(p.getWordLength());
 
-        System.out.println(Arrays.toString(t.split("\\W
+        System.out.println(Arrays.toString(t.split("\\W+")));
+    }
+}
