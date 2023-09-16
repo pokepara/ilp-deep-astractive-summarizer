@@ -7,4 +7,4 @@ import jaist.summarization.unit.Phrase;
 import org.w3c.dom.*;
 
 import javax.xml.parsers.DocumentBuilder;
-impor
+import javax.xml.parsers.DocumentBuilderFactor
