@@ -26,4 +26,5 @@ import java.util.Set;
 public class ModelExporter {
     private String documentSetName;
     private String parentFolder;
-    public ModelExporter(Strin
+    public ModelExporter(String statFolder, String documentSetName){
+    
