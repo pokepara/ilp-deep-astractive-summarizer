@@ -27,4 +27,5 @@ public class ModelExporter {
     private String documentSetName;
     private String parentFolder;
     public ModelExporter(String statFolder, String documentSetName){
-        this.parentFolder = statFolder + "/" + documentSetName 
+        this.parentFolder = statFolder + "/" + documentSetName + "/";
+        File folder = new File(parentFolder)
