@@ -28,4 +28,6 @@ public class ModelExporter {
     private String parentFolder;
     public ModelExporter(String statFolder, String documentSetName){
         this.parentFolder = statFolder + "/" + documentSetName + "/";
-        File folder = new File(parentFolder)
+        File folder = new File(parentFolder);
+        if (!folder.exists()){
+            f
