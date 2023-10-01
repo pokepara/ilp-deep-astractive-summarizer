@@ -30,4 +30,8 @@ public class ModelExporter {
         this.parentFolder = statFolder + "/" + documentSetName + "/";
         File folder = new File(parentFolder);
         if (!folder.exists()){
-            f
+            folder.mkdirs();
+        }
+    }
+
+    public v
