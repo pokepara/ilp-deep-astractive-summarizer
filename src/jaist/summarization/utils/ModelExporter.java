@@ -34,4 +34,5 @@ public class ModelExporter {
         }
     }
 
-    public v
+    public void savePhrasesToFile(List<Phrase> phrases){
+ 
