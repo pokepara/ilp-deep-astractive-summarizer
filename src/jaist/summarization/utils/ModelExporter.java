@@ -35,4 +35,5 @@ public class ModelExporter {
     }
 
     public void savePhrasesToFile(List<Phrase> phrases){
- 
+        try {
+            Document doc = 
