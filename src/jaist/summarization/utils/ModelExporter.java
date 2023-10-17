@@ -37,4 +37,7 @@ public class ModelExporter {
     public void savePhrasesToFile(List<Phrase> phrases){
         try {
             Document doc = generateXmlDocument();
-            Element rootElement = doc.createElement("phrases")
+            Element rootElement = doc.createElement("phrases");
+            doc.appendChild(rootElement);
+
+            for
