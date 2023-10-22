@@ -44,4 +44,5 @@ public class ModelExporter {
                 Element phraseElement = doc.createElement("phrase");
                 rootElement.appendChild(phraseElement);
 
-                phraseElement.
+                phraseElement.setAttribute("id", phrase.getId().toString());
+        
