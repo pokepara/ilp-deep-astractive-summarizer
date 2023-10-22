@@ -42,4 +42,6 @@ public class ModelExporter {
 
             for (Phrase phrase: phrases){
                 Element phraseElement = doc.createElement("phrase");
-                rootElement.appendChild(ph
+                rootElement.appendChild(phraseElement);
+
+                phraseElement.
