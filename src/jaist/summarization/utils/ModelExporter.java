@@ -45,4 +45,4 @@ public class ModelExporter {
                 rootElement.appendChild(phraseElement);
 
                 phraseElement.setAttribute("id", phrase.getId().toString());
-        
+                phraseElement.setAttribute("parentId", phrase.g
