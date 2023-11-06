@@ -48,4 +48,4 @@ public class ModelExporter {
                 phraseElement.setAttribute("parentId", phrase.getParentId().toString());
                 phraseElement.setAttribute("type", phrase.isNP() ? "NP" : "VP");
                 phraseElement.setAttribute("sentenceLength", phrase.getSentenceLength().toString());
-                ph
+                phraseElement.setAttribute("length", phras
