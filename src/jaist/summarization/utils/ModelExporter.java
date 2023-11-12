@@ -51,3 +51,4 @@ public class ModelExporter {
                 phraseElement.setAttribute("length", phrase.getWordLength().toString());
 
                 Element contentElement = doc.createElement("content");
+                phraseElement.appendChild(content
