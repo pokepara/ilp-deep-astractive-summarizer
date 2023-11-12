@@ -54,4 +54,4 @@ public class ModelExporter {
                 phraseElement.appendChild(contentElement);
                 contentElement.setTextContent(phrase.getContent());
 
-               
+                Element conceptsElement = doc.createElement("concept
