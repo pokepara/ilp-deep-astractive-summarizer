@@ -55,4 +55,5 @@ public class ModelExporter {
                 contentElement.setTextContent(phrase.getContent());
 
                 Element conceptsElement = doc.createElement("concepts");
-                phraseElem
+                phraseElement.appendChild(conceptsElement);
+                co
