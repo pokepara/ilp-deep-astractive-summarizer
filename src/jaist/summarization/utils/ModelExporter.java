@@ -56,4 +56,7 @@ public class ModelExporter {
 
                 Element conceptsElement = doc.createElement("concepts");
                 phraseElement.appendChild(conceptsElement);
-                conceptsElement.setTextContent(String.join(":", phrase.getC
+                conceptsElement.setTextContent(String.join(":", phrase.getConcepts()));
+            }
+
+            saveXmlT
