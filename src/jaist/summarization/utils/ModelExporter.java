@@ -59,4 +59,6 @@ public class ModelExporter {
                 conceptsElement.setTextContent(String.join(":", phrase.getConcepts()));
             }
 
-            saveXmlT
+            saveXmlToFile(doc, parentFolder + "/phrases.xml");
+
+      
