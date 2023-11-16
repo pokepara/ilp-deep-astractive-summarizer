@@ -61,4 +61,5 @@ public class ModelExporter {
 
             saveXmlToFile(doc, parentFolder + "/phrases.xml");
 
-      
+        }catch(Exception e){
+            e.printStackTra
