@@ -66,4 +66,6 @@ public class ModelExporter {
         }
     }
 
-    public void saveCoreferencesToFile(HashMap<String, HashSet<
+    public void saveCoreferencesToFile(HashMap<String, HashSet<String>> corefs){
+        PrintWriter out = null;
+ 
