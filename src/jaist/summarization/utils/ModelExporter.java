@@ -70,4 +70,5 @@ public class ModelExporter {
         PrintWriter out = null;
         try {
             out = new PrintWriter(parentFolder + "/corefs.txt");
-            for (String 
+            for (String key : corefs.keySet()) {
+                Set<Strin
