@@ -74,4 +74,5 @@ public class ModelExporter {
                 Set<String> refs = corefs.get(key);
                 out.println(key + ":" + String.join("|", refs));
             }
-        } catch (FileNotFoundExce
+        } catch (FileNotFoundException ex) {
+            System.out.println(e
