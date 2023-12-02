@@ -81,4 +81,7 @@ public class ModelExporter {
         }
     }
 
-    public void saveIndicatorMatrixToFile(PhraseMatrix indicatorMa
+    public void saveIndicatorMatrixToFile(PhraseMatrix indicatorMatrix){
+        PrintWriter out = null;
+        try {
+     
