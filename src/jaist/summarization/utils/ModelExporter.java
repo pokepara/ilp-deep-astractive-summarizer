@@ -77,4 +77,8 @@ public class ModelExporter {
         } catch (FileNotFoundException ex) {
             System.out.println(ex.getMessage());
         } finally {
-       
+            out.close();
+        }
+    }
+
+    public void save
