@@ -81,4 +81,4 @@ public class ModelExporter {
         }
     }
 
-    public void save
+    public void saveIndicatorMatrixToFile(PhraseMatrix indicatorMa
