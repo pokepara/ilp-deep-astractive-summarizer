@@ -84,4 +84,5 @@ public class ModelExporter {
     public void saveIndicatorMatrixToFile(PhraseMatrix indicatorMatrix){
         PrintWriter out = null;
         try {
-            out = new PrintWriter(parentFolder + "/indicator
+            out = new PrintWriter(parentFolder + "/indicator_matrix.txt");
+            for (String key : 
