@@ -85,4 +85,5 @@ public class ModelExporter {
         PrintWriter out = null;
         try {
             out = new PrintWriter(parentFolder + "/indicator_matrix.txt");
-            for (String key : 
+            for (String key : indicatorMatrix.keySet()) {
+                
