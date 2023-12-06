@@ -88,4 +88,6 @@ public class ModelExporter {
             for (String key : indicatorMatrix.keySet()) {
                 Integer value = Integer.parseInt(indicatorMatrix.getValue(key).toString());
 
-                out.println(key + 
+                out.println(key + ":" + value);
+            }
+        } catch (FileNotFound
