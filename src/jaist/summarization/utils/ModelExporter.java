@@ -86,4 +86,6 @@ public class ModelExporter {
         try {
             out = new PrintWriter(parentFolder + "/indicator_matrix.txt");
             for (String key : indicatorMatrix.keySet()) {
-                Integer value = Integer.parseInt(indicatorMatrix.getVa
+                Integer value = Integer.parseInt(indicatorMatrix.getValue(key).toString());
+
+                out.println(key + 
