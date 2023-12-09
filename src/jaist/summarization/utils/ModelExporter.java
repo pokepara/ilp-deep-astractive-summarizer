@@ -91,4 +91,6 @@ public class ModelExporter {
                 out.println(key + ":" + value);
             }
         } catch (FileNotFoundException ex) {
-            System.out.println(
+            System.out.println(ex.getMessage());
+        } finally {
+            out.close()
