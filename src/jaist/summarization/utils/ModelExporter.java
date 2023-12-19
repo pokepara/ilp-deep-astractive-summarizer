@@ -97,4 +97,5 @@ public class ModelExporter {
         }
     }
 
-    public void saveParagraphsTo
+    public void saveParagraphsToFile(List<InputDocument> documents){
+        try {
