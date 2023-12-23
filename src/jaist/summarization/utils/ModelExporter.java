@@ -100,4 +100,5 @@ public class ModelExporter {
     public void saveParagraphsToFile(List<InputDocument> documents){
         try {
             Document xmlDoc = generateXmlDocument();
-            Element rootElement = 
+            Element rootElement = xmlDoc.createElement("docs");
+            xmlDoc.appe
