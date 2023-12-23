@@ -99,4 +99,5 @@ public class ModelExporter {
 
     public void saveParagraphsToFile(List<InputDocument> documents){
         try {
-            Document xmlDoc = gen
+            Document xmlDoc = generateXmlDocument();
+            Element rootElement = 
