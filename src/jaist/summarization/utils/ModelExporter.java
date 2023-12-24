@@ -101,4 +101,6 @@ public class ModelExporter {
         try {
             Document xmlDoc = generateXmlDocument();
             Element rootElement = xmlDoc.createElement("docs");
-            xmlDoc.appe
+            xmlDoc.appendChild(rootElement);
+
+            for (InputDocume
