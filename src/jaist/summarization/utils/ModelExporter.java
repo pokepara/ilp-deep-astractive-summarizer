@@ -103,4 +103,5 @@ public class ModelExporter {
             Element rootElement = xmlDoc.createElement("docs");
             xmlDoc.appendChild(rootElement);
 
-            for (InputDocume
+            for (InputDocument doc : documents) {
+                Element d
