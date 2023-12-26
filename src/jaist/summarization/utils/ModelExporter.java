@@ -107,4 +107,5 @@ public class ModelExporter {
                 Element docElement = xmlDoc.createElement("doc");
                 rootElement.appendChild(docElement);
 
-                for (Paragraph paragraph: doc.getP
+                for (Paragraph paragraph: doc.getParagraphs()){
+                    Element parag
