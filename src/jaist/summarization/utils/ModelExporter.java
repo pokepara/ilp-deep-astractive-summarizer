@@ -114,4 +114,5 @@ public class ModelExporter {
                     for (String concept: paragraph.getConcepts()){
                         Element conceptElement = xmlDoc.createElement("concept");
                         paragraphElement.appendChild(conceptElement);
-                     
+                        conceptElement.setAttribute("name", concept);
+    
