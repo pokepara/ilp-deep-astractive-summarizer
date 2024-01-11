@@ -118,4 +118,6 @@ public class ModelExporter {
                         conceptElement.setAttribute("freq", paragraph.countFrequency(concept).toString());
                     }
                 }
-  
+            }
+
+            saveXmlToFi
