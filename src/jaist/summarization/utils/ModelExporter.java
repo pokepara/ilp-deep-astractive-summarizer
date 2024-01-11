@@ -115,4 +115,7 @@ public class ModelExporter {
                         Element conceptElement = xmlDoc.createElement("concept");
                         paragraphElement.appendChild(conceptElement);
                         conceptElement.setAttribute("name", concept);
-                        conceptElement.setAttribute("freq", paragraph.countFrequency(concept).toString(
+                        conceptElement.setAttribute("freq", paragraph.countFrequency(concept).toString());
+                    }
+                }
+  
