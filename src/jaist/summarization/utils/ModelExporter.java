@@ -121,4 +121,6 @@ public class ModelExporter {
             }
 
             saveXmlToFile(xmlDoc, parentFolder + "/docs.xml");
-        }catch
+        }catch(Exception e){
+            e.printStackTrace();
+     
