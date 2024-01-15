@@ -120,4 +120,5 @@ public class ModelExporter {
                 }
             }
 
-            saveXmlToFi
+            saveXmlToFile(xmlDoc, parentFolder + "/docs.xml");
+        }catch
