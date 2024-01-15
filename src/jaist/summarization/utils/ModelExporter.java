@@ -123,4 +123,7 @@ public class ModelExporter {
             saveXmlToFile(xmlDoc, parentFolder + "/docs.xml");
         }catch(Exception e){
             e.printStackTrace();
-     
+        }
+    }
+
+    private Document generateXmlDocument() throws P
