@@ -127,4 +127,5 @@ public class ModelExporter {
     }
 
     private Document generateXmlDocument() throws ParserConfigurationException{
-        D
+        DocumentBuilderFactory dbFactory =
+       
