@@ -131,4 +131,7 @@ public class ModelExporter {
                 DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder =
                 dbFactory.newDocumentBuilder();
-        retur
+        return dBuilder.newDocument();
+    }
+
+    private void 
