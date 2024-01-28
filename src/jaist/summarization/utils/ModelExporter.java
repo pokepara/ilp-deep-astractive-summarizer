@@ -134,4 +134,4 @@ public class ModelExporter {
         return dBuilder.newDocument();
     }
 
-    private void saveXmlToFile(Document xmlDoc, String filename
+    private void saveXmlToFile(Document xmlDoc, String filename) throws TransformerConfigurationE
