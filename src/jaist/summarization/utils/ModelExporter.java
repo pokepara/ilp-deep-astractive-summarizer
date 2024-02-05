@@ -141,4 +141,4 @@ public class ModelExporter {
                 transformerFactory.newTransformer();
         DOMSource source = new DOMSource(xmlDoc);
 
-        StreamResult res
+        StreamResult result = new StreamResult(new File(filename)
