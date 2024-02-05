@@ -139,4 +139,6 @@ public class ModelExporter {
                 TransformerFactory.newInstance();
         Transformer transformer =
                 transformerFactory.newTransformer();
-        DOMSource source
+        DOMSource source = new DOMSource(xmlDoc);
+
+        StreamResult res
