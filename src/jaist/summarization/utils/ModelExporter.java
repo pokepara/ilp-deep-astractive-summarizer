@@ -144,4 +144,6 @@ public class ModelExporter {
         StreamResult result = new StreamResult(new File(filename));
         try{
             transformer.transform(source, result);
-        }catch(Exceptio
+        }catch(Exception e){
+            e.printStackTrace();
+       
