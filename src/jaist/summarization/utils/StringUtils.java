@@ -8,4 +8,5 @@ import java.util.*;
  * Created by chientran on 3/3/16.
  */
 public class StringUtils {
-    public static
+    public static int countWords(String text){
+        return
