@@ -9,4 +9,7 @@ import java.util.*;
  */
 public class StringUtils {
     public static int countWords(String text){
-        return
+        return splitStringToWords(text).size();
+    }
+
+ 
