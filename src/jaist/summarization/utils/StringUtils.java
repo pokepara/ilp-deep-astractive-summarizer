@@ -12,4 +12,5 @@ public class StringUtils {
         return splitStringToWords(text).size();
     }
 
-    public static List<String> generateUnigrams(S
+    public static List<String> generateUnigrams(String text){
+        return splitStringToWord
