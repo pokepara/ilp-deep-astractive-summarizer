@@ -13,4 +13,7 @@ public class StringUtils {
     }
 
     public static List<String> generateUnigrams(String text){
-        return splitStringToWord
+        return splitStringToWords(text);
+    }
+
+    public static List<String> g
