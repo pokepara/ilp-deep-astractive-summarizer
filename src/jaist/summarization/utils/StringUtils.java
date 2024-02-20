@@ -16,4 +16,5 @@ public class StringUtils {
         return splitStringToWords(text);
     }
 
-    public static List<String> g
+    public static List<String> generateBigrams(List<String> unigrams){
+        L
