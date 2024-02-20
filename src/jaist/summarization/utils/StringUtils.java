@@ -17,4 +17,4 @@ public class StringUtils {
     }
 
     public static List<String> generateBigrams(List<String> unigrams){
-        L
+        List<List<String>> bigramTokens = Collec
