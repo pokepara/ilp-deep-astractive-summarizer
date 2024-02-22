@@ -20,4 +20,7 @@ public class StringUtils {
         List<List<String>> bigramTokens = CollectionUtils.getNGrams(unigrams, 2, 2);
         List<String> bigrams = new ArrayList<>();
         for(List<String> tokens: bigramTokens){
-           
+            bigrams.add(String.join(" ", tokens));
+        }
+
+  
