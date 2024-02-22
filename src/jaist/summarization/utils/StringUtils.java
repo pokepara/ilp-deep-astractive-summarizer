@@ -19,4 +19,5 @@ public class StringUtils {
     public static List<String> generateBigrams(List<String> unigrams){
         List<List<String>> bigramTokens = CollectionUtils.getNGrams(unigrams, 2, 2);
         List<String> bigrams = new ArrayList<>();
-        for(List<St
+        for(List<String> tokens: bigramTokens){
+           
