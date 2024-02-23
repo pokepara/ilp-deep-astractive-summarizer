@@ -26,4 +26,5 @@ public class StringUtils {
         return bigrams;
     }
 
-    private stati
+    private static List<String> splitStringToWords(String text){
+     
