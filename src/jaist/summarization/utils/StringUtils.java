@@ -23,4 +23,7 @@ public class StringUtils {
             bigrams.add(String.join(" ", tokens));
         }
 
-  
+        return bigrams;
+    }
+
+    private stati
