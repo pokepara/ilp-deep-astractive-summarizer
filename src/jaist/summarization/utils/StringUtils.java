@@ -27,4 +27,6 @@ public class StringUtils {
     }
 
     private static List<String> splitStringToWords(String text){
-     
+        return Arrays.asList(text.split("\\W+"));
+    }
+}
