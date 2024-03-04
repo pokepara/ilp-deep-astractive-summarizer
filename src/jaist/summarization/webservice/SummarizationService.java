@@ -8,4 +8,6 @@ import javax.jws.WebService;
 /**
  * Created by chientran on 3/6/16.
  */
-@WebServ
+@WebService
+public class SummarizationService {
+  
