@@ -11,4 +11,4 @@ import javax.jws.WebService;
 @WebService
 public class SummarizationService {
     @WebMethod(action="summarizeText")
-    
+    public String summarizeText(String long
