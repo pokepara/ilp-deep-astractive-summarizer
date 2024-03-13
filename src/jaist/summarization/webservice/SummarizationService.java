@@ -11,4 +11,5 @@ import javax.jws.WebService;
 @WebService
 public class SummarizationService {
     @WebMethod(action="summarizeText")
-    public String summarizeText(String long
+    public String summarizeText(String long_text, int max_words){
+        Parser parser = new Parser
