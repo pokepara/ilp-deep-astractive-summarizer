@@ -16,4 +16,5 @@ public class SummarizationService {
         parser.processDocument(long_text);
 
         return parser.generateSummary();
- 
+    }
+}
