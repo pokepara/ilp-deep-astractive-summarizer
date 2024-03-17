@@ -13,4 +13,7 @@ public class SummarizationService {
     @WebMethod(action="summarizeText")
     public String summarizeText(String long_text, int max_words){
         Parser parser = new Parser(max_words);
-        parser.processDocument(lo
+        parser.processDocument(long_text);
+
+        return parser.generateSummary();
+ 
