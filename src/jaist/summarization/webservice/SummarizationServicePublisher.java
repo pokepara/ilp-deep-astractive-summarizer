@@ -10,4 +10,6 @@ import javax.xml.ws.Endpoint;
 public class SummarizationServicePublisher {
     static String ADDRESS = "http://localhost:9999/ws/as";
 
-    publ
+    public static void main(String[] args){
+
+        Annotato
