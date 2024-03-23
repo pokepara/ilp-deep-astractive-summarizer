@@ -7,4 +7,5 @@ import javax.xml.ws.Endpoint;
 /**
  * Created by chientran on 3/6/16.
  */
-public class Summarization
+public class SummarizationServicePublisher {
+    static Strin
