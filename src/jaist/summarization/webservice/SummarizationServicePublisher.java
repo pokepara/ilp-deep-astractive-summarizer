@@ -8,4 +8,6 @@ import javax.xml.ws.Endpoint;
  * Created by chientran on 3/6/16.
  */
 public class SummarizationServicePublisher {
-    static Strin
+    static String ADDRESS = "http://localhost:9999/ws/as";
+
+    publ
