@@ -12,4 +12,5 @@ public class SummarizationServicePublisher {
 
     public static void main(String[] args){
 
-        Annotato
+        AnnotatorHub.getInstance();
+        Endpoint.publish(ADDRESS, 
