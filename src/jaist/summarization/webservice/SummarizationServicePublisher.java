@@ -13,4 +13,5 @@ public class SummarizationServicePublisher {
     public static void main(String[] args){
 
         AnnotatorHub.getInstance();
-        Endpoint.publish(ADDRESS, 
+        Endpoint.publish(ADDRESS, new SummarizationService());
+        System.out.prin
