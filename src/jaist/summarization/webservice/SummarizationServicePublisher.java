@@ -14,4 +14,5 @@ public class SummarizationServicePublisher {
 
         AnnotatorHub.getInstance();
         Endpoint.publish(ADDRESS, new SummarizationService());
-        System.out.prin
+        System.out.println("Web service is ready at: " + ADDRESS);
+    }
