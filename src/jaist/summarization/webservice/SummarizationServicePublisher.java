@@ -16,3 +16,4 @@ public class SummarizationServicePublisher {
         Endpoint.publish(ADDRESS, new SummarizationService());
         System.out.println("Web service is ready at: " + ADDRESS);
     }
+}
