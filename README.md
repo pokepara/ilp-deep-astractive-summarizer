@@ -1,1 +1,1 @@
-This repository hosts 
+This repository hosts the implementation of an advanced summarization system. The 
