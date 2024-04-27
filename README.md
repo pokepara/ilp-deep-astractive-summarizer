@@ -1,1 +1,1 @@
-This repository hosts the implementation of an advanced summarization system. The underlying approach is abstraction-based, utilizing i
+This repository hosts the implementation of an advanced summarization system. The underlying approach is abstraction-based, utilizing integer linear programming alongsi
