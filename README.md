@@ -1,1 +1,1 @@
-This repository hosts the implementation of an advanced summarization system. The underlying approach is abstraction-based, utilizing integer linear programming alongside deep learning principles. The system is inspired by t
+This repository hosts the implementation of an advanced summarization system. The underlying approach is abstraction-based, utilizing integer linear programming alongside deep learning principles. The system is inspired by the concepts discussed in the research paper: 'A
