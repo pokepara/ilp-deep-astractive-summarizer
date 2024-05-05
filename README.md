@@ -1,3 +1,3 @@
 This repository hosts the implementation of an advanced summarization system. The underlying approach is abstraction-based, utilizing integer linear programming alongside deep learning principles. The system is inspired by the concepts discussed in the research paper: 'Abstractive Multi-Document Summarization via Phrase Selection and Merging'. (Lidong Bing, Piji Li, Yi Liao, Wai Lam, Weiwei Guo, Rebecca J. Passonneau)
 
-As the new owner of this repository, pokepara, is committed to maint
+As the new owner of this repository, pokepara, is committed to maintaining and improving this project. Feedbacks 
